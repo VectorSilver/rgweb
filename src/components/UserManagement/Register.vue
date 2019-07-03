@@ -1,6 +1,8 @@
 <template>
   <div>
 
+    <my-header></my-header>
+
     <div id="top-div">
         <h1>上 睿 购，买 个 够！</h1>
         <div id="inner-div">
@@ -32,7 +34,19 @@
 </template>
 
 <script>
-export default {};
+  import Header from '../Header'
+
+  export default {
+    data() {
+      return {
+        
+      }
+    },
+    methods:{},
+    components:{
+      'my-header': Header
+    }
+  };
 </script>
 
 <style lang="scss" scoped>
