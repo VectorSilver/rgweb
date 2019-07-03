@@ -32,33 +32,10 @@
             margin-top: 0px;
         }
 
-        #header-ninhao {
-            padding-left: 270px;
-        }
-
-        #header-zhuce {
-            padding-left: 10px;
-        }
-
-        #header-gouwuche {
-            padding-left: 945px;
-        }
-
-        #header-dingdan {
-            padding-left: 8px;
-        }
-
-        #header-ruigou {
-            padding-left: 8px;
-        }
-
-        #header-guanyu {
-            padding-left: 8px;
-        }
 
         #header-img {
             position: relative;
-            left: 250px;
+            left: 550px;
             top: 15px;
         }
 
@@ -77,36 +54,58 @@
             width: 650px;
             height: 47px;
             position: relative;
-            left: 520px;
+            left: 820px;
             top: -60px;
         }
 
-        
+        .header-li-left {
+            float: left;
+            margin-left: 20px;
+        }
+
+        .header-li-right {
+            float: right;
+            margin-right: 20px;
+        }
     </style>
 </head>
 
 <body>
-    
-        <div id="bigdiv">
-            <div id="header">
-                <a id="header-ninhao">您好，请登录</a>
-                <a id="header-zhuce">注册</a>
-                <a id="header-gouwuche">购物车(0)</a>
-                <a id="header-dingdan">我的订单</a>
-                <a id="header-ruigou">我的睿购</a>
-                <a id="header-guanyu">关于睿购商城</a>
-            </div>
-            <div id="header-img">
-                <img src="../assets/睿购商城logo.png">
-            </div>
-            <div id="header-sousuo">
-                <input type="text" id="header-input" placeholder="  请输入商品名称"
-                    style="width:560px; height:40px;border: 3px solid orange;" ;>
 
-                <button type="button" id="header-btn">搜索</button>
-            </div>
-            
-    
+    <div id="bigdiv">
+        <div id="header">
+            <ul>
+                <li class="header-li-left">
+                    <a>您好，请登录</a>
+                </li>
+                <li class="header-li-left">
+                    <a>注册</a>
+                </li>
+                <li class="header-li-right">
+                    <a>关于睿购商城</a>
+                </li>
+                <li class="header-li-right">
+                    <a>我的睿购</a>
+                </li>
+                <li class="header-li-right">
+                    <a>我的订单</a>
+                </li>
+                <li class="header-li-right">
+                    <a>购物车(0)</a>
+                </li>
+            </ul>
+        </div>
+        <div id="header-img">
+            <img src="../assets/睿购商城logo.png">
+        </div>
+        <div id="header-sousuo">
+            <input type="text" id="header-input" placeholder="  请输入商品名称"
+                style="width:560px; height:40px;border: 3px solid orange;" ;>
+
+            <button type="button" id="header-btn">搜索</button>
+        </div>
+
+
 </body>
 
 </html>
