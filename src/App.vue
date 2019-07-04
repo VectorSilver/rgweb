@@ -7,13 +7,9 @@
 </template>
 
 <script>
-export default {};
+  export default {};
 </script>
 
 <style lang="scss" scoped>
-* {
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-}
+
 </style>

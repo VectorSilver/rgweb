@@ -10,10 +10,18 @@
           <li class="header-li-left">
             <router-link to="/register">注册</router-link>
           </li>
-          <li class="header-li-right">关于睿购商城</li>
-          <li class="header-li-right">我的睿购</li>
-          <li class="header-li-right">我的订单</li>
-          <li class="header-li-right">购物车(0)</li>
+          <li class="header-li-right">
+            关于睿购商城
+          </li>
+          <li class="header-li-right">
+            <router-link to="/myInfo">我的睿购</router-link>
+          </li>
+          <li class="header-li-right">
+            我的订单
+          </li>
+          <li class="header-li-right">
+            购物车(0)
+          </li>
         </ul>
       </div>
     </div>
