@@ -1,17 +1,13 @@
 <template>
   <div>
-
-    <router-link to="/userLogin">登录</router-link>
-    <router-link to="/register">注册</router-link>
+    <!-- 路由出口，渲染最高级路由匹配到的组件 -->
     <router-view></router-view>
-
+    
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+  export default {};
 </script>
 
 <style lang="scss" scoped>

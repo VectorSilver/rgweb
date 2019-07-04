@@ -1,5 +1,8 @@
 <template>
   <div>
+
+    <my-header></my-header>
+
     <div id="top-div">
       <h1>上 睿 购，买 个 够！</h1>
       <div id="inner-div">
@@ -13,16 +16,29 @@
           <button class="login-input" id="login-button">登 录</button>
         </form>
         <div id="a-div">
-          <a href>忘记密码 </a>
-          <a href>免费注册 </a>
+          <router-link to="/findPass">忘记密码 </router-link>
+          <router-link to="/register">免费注册</router-link> 
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
-export default {};
+  import Header from '../Header'
+
+  export default {
+    data() {
+      return {
+        
+      }
+    },
+    methods:{},
+    components:{
+      'my-header': Header
+    }
+  };
 </script>
 
 <style lang="scss" scoped>
