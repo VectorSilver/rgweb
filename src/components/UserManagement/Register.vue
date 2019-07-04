@@ -24,8 +24,8 @@
                 <input type="text" placeholder="请输入密码提示问题答案" name="" class="login-input" />
                 <button class="login-input" id="login-button">立即注册</button>
             </form>
-            <div id="a-div">
-                <a href>已有帐号，去登陆>></a>
+            <div id="router-div">
+                <router-link to="/userLogin">已有帐号，去登陆>></router-link>
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@ h3 {
   font-size: 15px;
 }
 
-#a-div {
+#router-div {
   margin-left: 200px;
 }
 
