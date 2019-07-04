@@ -11,7 +11,7 @@ import FindPass from './components/UserManagement/FindPass'
 Vue.use(Router)
 
 export default new Router({
-  //配置路由
+  //配置路由匹配规则
   routes: [
     {
       path: '/',
