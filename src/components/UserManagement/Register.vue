@@ -15,7 +15,7 @@
                 <br />
                 <input type="password" placeholder="请再次输入密码" name="" class="login-input" />
                 <br>
-                <input type="number" placeholder="请输入手机号" name="" class="login-input" />
+                <input type="text" placeholder="请输入手机号" name="" class="login-input" />
                 <br>
                 <input type="email" placeholder="请输入邮箱" name="" class="login-input" />
                 <br>

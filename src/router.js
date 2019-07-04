@@ -6,6 +6,7 @@ import Register from './components/UserManagement/Register'
 import MyRG from './components/UserManagement/MyRG'
 import MyInfo from './components/UserManagement/MyRG/MyInfo'
 import ChangePass from './components/UserManagement/MyRG/ChangePass'
+import FindPass from './components/UserManagement/FindPass'
 
 Vue.use(Router)
 
@@ -44,6 +45,10 @@ export default new Router({
         }
       ]
     },
-
+    {
+      path: '/findPass',
+      name: 'findPass',
+      component: FindPass
+    }
   ]
 })

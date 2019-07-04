@@ -16,7 +16,7 @@
           <button class="login-input" id="login-button">登 录</button>
         </form>
         <div id="a-div">
-          <a href>忘记密码 </a>
+          <router-link to="/findPass">忘记密码 </router-link>
           <router-link to="/register">免费注册</router-link> 
         </div>
       </div>
