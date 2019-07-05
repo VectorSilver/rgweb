@@ -6,7 +6,7 @@
     <div id="left-box">
       <ul>
         <li>
-          <router-link to="/myInfo">我的睿购</router-link>
+          <router-link to="/myInfo">我的信息</router-link>
         </li>
         <li>
           <router-link to="">我的订单</router-link>
