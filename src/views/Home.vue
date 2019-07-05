@@ -3,11 +3,14 @@
 
     <my-header></my-header>
 
+    <my-footer></my-footer>
+
   </div>
 </template>
 
 <script>
   import Header from "../components/Header";
+  import Footer from '../components/Footer';
 
   export default {
     data() {
@@ -15,15 +18,12 @@
     },
     methods: {},
     components: {
-      "my-header": Header
+      "my-header": Header,
+      'my-footer': Footer
     }
   };
 </script>
 
-<style scoped>
-  * {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-  }
+<style lang="scss" scoped>
+
 </style>

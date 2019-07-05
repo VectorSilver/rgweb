@@ -5,22 +5,22 @@
       <div id="header">
         <ul>
           <li class="header-li-left">
-            <router-link to="/userLogin">您好，请登录</router-link>
+              <router-link to="/userLogin">您好，请登录</router-link>
           </li>
           <li class="header-li-left">
-            <router-link to="/register">注册</router-link>
+              <router-link to="/register">注册</router-link>
           </li>
           <li class="header-li-right">
-            关于睿购商城
+            <router-link to="/register">关于睿购商城</router-link>
           </li>
           <li class="header-li-right">
-            <router-link to="/myInfo">我的睿购</router-link>
+            <router-link to="/myRG">我的睿购</router-link>
           </li>
           <li class="header-li-right">
-            我的订单
+            <router-link to="/register">我的订单</router-link>
           </li>
           <li class="header-li-right">
-            购物车(0)
+            <router-link to="/register">购物车(0)</router-link>
           </li>
         </ul>
       </div>
