@@ -1,4 +1,4 @@
-// 入口文件
+// 项目的JS入口文件
 import Vue from 'vue'
 
 // 引入Element
