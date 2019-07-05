@@ -1,44 +1,59 @@
 <template>
   <div>
 
-    <my-header></my-header>
+    <!-- <el-container>
+      <el-header> -->
+        <my-header></my-header>
+      <!-- </el-header> -->
 
-    <div id="top-div">
-      <h1>上 睿 购，买 个 够！</h1>
-      <div id="inner-div">
-        <h3>用户登录</h3>
-        <hr />
-        <form action>
-          <input type="text" placeholder="请输入用户名" name class="login-input" />
-          <br />
-          <input type="password" placeholder="请输入密码" name class="login-input" />
-          <br />
-          <button class="login-input" id="login-button">登 录</button>
-        </form>
-        <div id="a-div">
-          <router-link to="/findPass">忘记密码 </router-link>
-          <router-link to="/register">免费注册</router-link> 
+      <!-- <el-main> -->
+        <div id="top-div">
+          <h1>上 睿 购，买 个 够！</h1>
+          <div id="inner-div">
+            <h3>用户登录</h3>
+            <hr />
+            <form action>
+              <input type="text" placeholder="请输入用户名" name class="login-input" />
+              <!-- <el-input
+                placeholder="请输入用户名"
+                prefix-icon="el-icon-user"
+                v-model="userName"
+                class="inputs"></el-input> -->
+              <br />
+              <input type="password" placeholder="请输入密码" name class="login-input" />
+              <br />
+              <button class="login-input" id="login-button">登 录</button>
+            </form>
+            <div id="a-div">
+              <router-link to="/findPass">忘记密码 </router-link>
+              <router-link to="/register">免费注册</router-link>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      <!-- </el-main>
+    </el-container> -->
+
+    <my-footer></my-footer>
 
   </div>
 </template>
 
 <script>
-  import Header from '../Header'
+import Header from '../Header';
+import Footer from '../Footer';
 
-  export default {
-    data() {
-      return {
-        
-      }
-    },
-    methods:{},
-    components:{
-      'my-header': Header
-    }
-  };
+export default {
+  data() {
+    return {
+      userName: ""
+    };
+  },
+  methods: {},
+  components: {
+    "my-header": Header,
+    'my-footer': Footer
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -48,9 +63,9 @@
 }
 
 #top-div {
-  height: 400px;
+  height: 500px;
   width: 100%;
-  background-color: #e72955;
+  background-color: #409eff;
 }
 
 h1 {
@@ -58,9 +73,6 @@ h1 {
   top: 150px;
   left: 400px;
   color: rgb(255, 255, 255);
-  text-shadow: 0 0 20px #fdec84, 10px -10px 30px #ffae35,
-    20px -20px 40px #ec760c, -20px -60px 50px #cd4607, 0px -80px 60px #973717,
-    10px -40px 70px #451b0e;
 }
 
 #inner-div {
@@ -68,7 +80,7 @@ h1 {
   width: 400px;
   background-color: rgb(255, 255, 255);
   position: relative;
-  top: 50px;
+  top: 100px;
   left: 1200px;
   border: 1px;
 }
@@ -76,7 +88,7 @@ h1 {
 h3 {
   text-align: center;
   line-height: 50px;
-  color: rgb(105, 98, 100);
+  color: #606266;
 }
 
 .login-input {
@@ -88,7 +100,7 @@ h3 {
 
 #login-button {
   width: 255px;
-  background-color: #ff8800;
+  background-color: #67c23a;
   border: 0px;
   color: rgb(255, 255, 255);
   font-size: 15px;
