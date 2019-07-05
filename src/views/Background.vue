@@ -2,13 +2,17 @@
   <div>
 
     <header>
-        <h2 style="color:white" >睿购后台管理系统</h2>
+      <el-row>
+        <el-col :span="24">
+          <h2 style="color:white;">睿购后台管理系统</h2>
+        </el-col>
+      </el-row>
     </header>
 
     <el-row>
       <el-col :span="4">
 
-        <el-menu default-active="1-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+        <el-menu default-active="route.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
         background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"
         >
           <el-submenu index="1">

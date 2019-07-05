@@ -49,7 +49,7 @@
   }
 
   #left-box {
-    width: 200px;
+    width: 10%;
     height: 500px;
     position: absolute;
     top: 50px;
@@ -58,7 +58,7 @@
 
   #right-box {
     border: 1px;
-    width: 800px;
+    width: 50%;
     height: 300px;
     position: absolute;
     top: 50px;
