@@ -10,11 +10,11 @@
     </header>
 
     <el-row>
-      <el-col :span="4">
 
+      <el-col :span="4">
         <el-menu default-active="route.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
-        background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"
-        >
+        background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+
           <el-submenu index="1">
             <template slot="title">
                 <i class="el-icon-folder"></i>
@@ -54,21 +54,19 @@
             <el-menu-item index="4-1">新增商品规格模板</el-menu-item>
             <el-menu-item index="4-2">查询商品规格模板</el-menu-item>
           </el-submenu>
-
           
         </el-menu>
-
       </el-col>
-      <el-col :span="20">
 
+      <el-col :span="20">
           <el-tabs type="border-card">
             <el-tab-pane label="用户管理">用户管理</el-tab-pane>
             <el-tab-pane label="配置管理">配置管理</el-tab-pane>
             <el-tab-pane label="角色管理">角色管理</el-tab-pane>
             <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
           </el-tabs>
-
       </el-col>
+
     </el-row>
 
   </div>
