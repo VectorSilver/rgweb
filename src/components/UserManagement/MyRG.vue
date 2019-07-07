@@ -11,7 +11,7 @@
         <el-col :span="12"> -->
           <div class="grid-content">
 
-            <el-page-header @back="goBack" content="我的信息" id="PageHeader" title="首页"></el-page-header>
+            <el-page-header content="我的信息" id="PageHeader" title="首页"></el-page-header>
             <div id="left-box">
               <ul>
                 <li>
@@ -48,35 +48,29 @@
 
   export default {
     data() {
-      return {
-        
-      }
+      return {}
     },
-    methods:{
-      goBack(){
-
-      }
-    },
+    methods:{},
     components:{
       'my-header': Header
     }
   };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
   * {
     list-style: none;
     text-decoration: none;
   }
 
   #left-box {
-    width: 10%;
+    width: 200px;
     position: absolute;
     top: 100px;
   }
 
   #right-box {
-    width: 90%;
+    width: 800px;
     position: absolute;
     top: 100px;
     left: 100px;
@@ -98,12 +92,8 @@
     left: 100px;
   }
 
-  .el-col {
-    border-radius: 4px;
-  }
   .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
+    min-height: 100px;
     position: relative;
   }
 </style>

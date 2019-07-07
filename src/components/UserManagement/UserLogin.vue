@@ -13,7 +13,7 @@
           <br />
           <input type="password" placeholder="请输入密码" class="login-input" v-model="form.pass">
           <br />
-          <button class="login-input" id="login-button">登 录</button>
+          <button class="login-input" id="login-button" @click="onSubmit">登 录</button>
         </form>
         <!-- <el-form ref="form" :model="form" label-width="80px">
           <el-form-item label="用户名">

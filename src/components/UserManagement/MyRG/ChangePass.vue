@@ -7,13 +7,13 @@
       </div>
       <el-form :label-position="labelPosition" label-width="100px" :model="formLabelAlign">
         <el-form-item label="旧密码">
-          <el-input v-model="formLabelAlign.oldPass" placeholder="请输入旧密码"></el-input>
+          <el-input v-model="formLabelAlign.oldPass" placeholder="请输入旧密码" show-password prefix-icon="el-icon-lock" class="pass-input"></el-input>
         </el-form-item>
         <el-form-item label="新密码">
-          <el-input v-model="formLabelAlign.newPass" placeholder="请输入新密码"></el-input>
+          <el-input v-model="formLabelAlign.newPass" placeholder="请输入新密码" show-password prefix-icon="el-icon-lock" class="pass-input"></el-input>
         </el-form-item>
         <el-form-item label="确认新密码">
-          <el-input v-model="formLabelAlign.newPass" placeholder="请确认新密码"></el-input>
+          <el-input v-model="formLabelAlign.newPass" placeholder="请确认新密码" show-password prefix-icon="el-icon-lock" class="pass-input"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit">立即创建</el-button>
@@ -56,13 +56,10 @@
   }
 
   .pass-input {
-    height: 30px;
     width: 30%;
-    margin-top: 20px;
-    margin-left: 75px;
   }
 
-  .clearfix:after {
-    clear: both;
-  }
+  // .clearfix:after {
+  //   clear: both;
+  // }
 </style>
