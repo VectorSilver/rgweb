@@ -1,37 +1,37 @@
 <template>
   <div>
 
-    <!-- <el-container>
-      <el-header> -->
-        <my-header></my-header>
-      <!-- </el-header> -->
+    <my-header></my-header>
 
-      <!-- <el-main> -->
-        <div id="top-div">
-          <h1>上 睿 购，买 个 够！</h1>
-          <div id="inner-div">
-            <h3>用户登录</h3>
-            <hr />
-            <form action>
-              <input type="text" placeholder="请输入用户名" name class="login-input" />
-              <!-- <el-input
-                placeholder="请输入用户名"
-                prefix-icon="el-icon-user"
-                v-model="userName"
-                class="inputs"></el-input> -->
-              <br />
-              <input type="password" placeholder="请输入密码" name class="login-input" />
-              <br />
-              <button class="login-input" id="login-button">登 录</button>
-            </form>
-            <div id="a-div">
-              <router-link to="/findPass">忘记密码 </router-link>
-              <router-link to="/register">免费注册</router-link>
-            </div>
-          </div>
+    <div id="top-div">
+      <h1>上 睿 购，买 个 够！</h1>
+      <div id="inner-div">
+        <h3>用户登录</h3>
+        <hr />
+        <form>
+          <input type="text" placeholder="请输入用户名" class="login-input" v-model="form.name">
+          <br />
+          <input type="password" placeholder="请输入密码" class="login-input" v-model="form.pass">
+          <br />
+          <button class="login-input" id="login-button">登 录</button>
+        </form>
+        <!-- <el-form ref="form" :model="form" label-width="80px">
+          <el-form-item label="用户名">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item label="密码">
+            <el-input v-model="form.pass"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="onSubmit">立即创建</el-button>
+          </el-form-item>
+        </el-form> -->
+        <div id="a-div">
+          <router-link to="/findPass">忘记密码 </router-link>
+          <router-link to="/register">免费注册</router-link>
         </div>
-      <!-- </el-main>
-    </el-container> -->
+      </div>
+    </div>
 
     <my-footer></my-footer>
 
@@ -39,19 +39,26 @@
 </template>
 
 <script>
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from "../Header";
+import Footer from "../Footer";
 
 export default {
   data() {
     return {
-      userName: ""
+      form: {
+        name: "",
+        pass: ""
+      }
     };
   },
-  methods: {},
+  methods: {
+    onSubmit() {
+      console.log('submit!');
+    }
+  },
   components: {
     "my-header": Header,
-    'my-footer': Footer
+    "my-footer": Footer
   }
 };
 </script>
@@ -99,7 +106,7 @@ h3 {
 }
 
 #login-button {
-  width: 255px;
+  width: 254px;
   background-color: #67c23a;
   border: 0px;
   color: rgb(255, 255, 255);

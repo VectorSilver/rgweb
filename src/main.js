@@ -1,8 +1,8 @@
 // 项目的JS入口文件
 import Vue from 'vue'
 // 引入ElementUI
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 // 导入app根组件
 import App from './App.vue'
 // 导入路由组件

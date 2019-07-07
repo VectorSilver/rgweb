@@ -15,7 +15,11 @@ export default new Router({
   // 配置路由匹配规则
   routes: [
     {
-      path: '/',
+      path: '/', 
+      redirect: '/home' //路由重定向
+    },
+    {
+      path: '/home',
       name: 'home',
       component: Home
     },

@@ -3,27 +3,44 @@
 
     <my-header></my-header>
 
-    <div id="left-box">
-      <ul>
-        <li>
-          <router-link to="/myInfo">我的信息</router-link>
-        </li>
-        <li>
-          <router-link to="">我的订单</router-link>
-        </li>
-        <li>
-          <router-link to="/changePass">修改密码</router-link>
-        </li>
-      </ul>
-    </div>
+    <!-- 响应式布局 -->
+    <el-row>
+      <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"><div class="grid-content"></div></el-col>
+      <el-col :xs="16" :sm="16" :md="16" :lg="16" :xl="16">
+        <!-- <el-col :span="6"><div class="grid-content"></div></el-col>
+        <el-col :span="12"> -->
+          <div class="grid-content">
 
-    <div id="right-box">
-      <transition mode="out-in">
-        <router-view></router-view>
-      </transition>
-    </div>
+            <el-page-header @back="goBack" content="我的信息" id="PageHeader" title="首页"></el-page-header>
+            <div id="left-box">
+              <ul>
+                <li>
+                  <router-link to="/myInfo">我的信息</router-link>
+                </li>
+                <li>
+                  <router-link to="">我的订单</router-link>
+                </li>
+                <li>
+                  <router-link to="/changePass">修改密码</router-link>
+                </li>
+              </ul>
+            </div>
 
-  </div>
+            <div id="right-box">
+              <transition mode="out-in">
+                <router-view></router-view>
+              </transition>
+            </div>
+            
+          </div>
+        <!-- </el-col>
+        <el-col :span="6"><div class="grid-content bg-purple-dark"></div></el-col> -->
+        <!-- </div> -->
+      </el-col>
+      <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"><div class="grid-content"></div></el-col>
+    </el-row>
+
+    </div>
 </template>
 
 <script>
@@ -35,7 +52,11 @@
         
       }
     },
-    methods:{},
+    methods:{
+      goBack(){
+
+      }
+    },
     components:{
       'my-header': Header
     }
@@ -50,20 +71,15 @@
 
   #left-box {
     width: 10%;
-    height: 500px;
     position: absolute;
-    top: 50px;
-    left: 300px;
+    top: 100px;
   }
 
   #right-box {
-    border: 1px;
-    width: 50%;
-    height: 300px;
+    width: 90%;
     position: absolute;
-    top: 50px;
-    left: 500px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    top: 100px;
+    left: 100px;
   }
 
   .v-enter,
@@ -74,5 +90,20 @@
   .v-enter-active,
   .v-leave-active {
     transition: all 0.2s ease;
+  }
+
+  #PageHeader {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+  }
+
+  .el-col {
+    border-radius: 4px;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+    position: relative;
   }
 </style>
