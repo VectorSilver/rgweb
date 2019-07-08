@@ -7,6 +7,7 @@ import MyRG from './components/UserManagement/MyRG'
 import MyInfo from './components/UserManagement/MyRG/MyInfo'
 import ChangePass from './components/UserManagement/MyRG/ChangePass'
 import FindPass from './components/UserManagement/FindPass'
+import Background from './views/Background'
 
 Vue.use(Router)
 
@@ -14,7 +15,11 @@ export default new Router({
   // 配置路由匹配规则
   routes: [
     {
-      path: '/',
+      path: '/', 
+      redirect: '/home' //路由重定向
+    },
+    {
+      path: '/home',
       name: 'home',
       component: Home
     },
@@ -49,6 +54,11 @@ export default new Router({
       path: '/findPass',
       name: 'findPass',
       component: FindPass
+    },
+    {
+      path: '/background',
+      name: 'background',
+      component: Background
     }
   ]
 })
