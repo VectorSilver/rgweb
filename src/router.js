@@ -7,7 +7,7 @@ import MyRG from './components/UserManagement/MyRG'
 import MyInfo from './components/UserManagement/MyRG/MyInfo'
 import ChangePass from './components/UserManagement/MyRG/ChangePass'
 import FindPass from './components/UserManagement/FindPass'
-import Background from './views/Background'
+import Background from './views/backgroud/Background'
 
 Vue.use(Router)
 

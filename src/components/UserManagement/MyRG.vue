@@ -7,8 +7,6 @@
     <el-row>
       <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"><div class="grid-content"></div></el-col>
       <el-col :xs="16" :sm="16" :md="16" :lg="16" :xl="16">
-        <!-- <el-col :span="6"><div class="grid-content"></div></el-col>
-        <el-col :span="12"> -->
           <div class="grid-content">
 
             <el-page-header content="我的信息" id="PageHeader" title="首页"></el-page-header>
@@ -33,9 +31,6 @@
             </div>
             
           </div>
-        <!-- </el-col>
-        <el-col :span="6"><div class="grid-content bg-purple-dark"></div></el-col> -->
-        <!-- </div> -->
       </el-col>
       <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"><div class="grid-content"></div></el-col>
     </el-row>
