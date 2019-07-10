@@ -13,13 +13,13 @@
             <div id="left-box">
               <ul>
                 <li>
-                  <router-link to="/myInfo">我的信息</router-link>
+                  <router-link to="/myRG/myInfo">我的信息</router-link>
                 </li>
                 <li>
                   <router-link to="">我的订单</router-link>
                 </li>
                 <li>
-                  <router-link to="/changePass">修改密码</router-link>
+                  <router-link to="/myRG/changePass">修改密码</router-link>
                 </li>
               </ul>
             </div>

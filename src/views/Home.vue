@@ -9,6 +9,7 @@
 </template>
 
 <script>
+  //导入子组件
   import Header from "../components/Header";
   import Footer from "../components/Footer";
 

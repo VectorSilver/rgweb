@@ -39,12 +39,12 @@ export default new Router({
       component: MyRG,
       children:[  // 嵌套子路由
         {
-          path: '/myInfo',
+          path: '/myRG/myInfo',
           name: 'myInfo',
           component: MyInfo
         },
         {
-          path: '/changePass',
+          path: '/myRG/changePass',
           name: 'changePass',
           component: ChangePass
         }
