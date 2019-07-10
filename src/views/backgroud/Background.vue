@@ -22,7 +22,9 @@
               <i class="el-icon-folder"></i>
               <span>商品管理</span>
             </template>
-            <el-menu-item index="1-1">新增商品</el-menu-item>
+            <el-menu-item index="1-1">
+              <router-link to="/background/addGoods">新增商品</router-link> 
+              </el-menu-item>
             <el-menu-item index="1-2">查询商品列表</el-menu-item>
           </el-submenu>
 
@@ -99,18 +101,22 @@
       </el-col>
 
       <el-col :span="20" class="panel">
-        <!-- <el-tabs type="border-card" @tab-click="handleClick">
-            <el-tab-pane label="新增商品">新增商品</el-tab-pane>
-            <el-tab-pane label="查询商品列表">查询商品列表</el-tab-pane>
-        </el-tabs>-->
-        <my-panel></my-panel>
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+          <el-breadcrumb-item>商品管理</el-breadcrumb-item>
+          <el-breadcrumb-item>新增商品</el-breadcrumb-item>
+        </el-breadcrumb>
+        <br>
+
+        <el-card class="box-card">
+          <router-view></router-view>
+        </el-card>
+
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-import Panel from './Panel'
 
 export default {
   data() {
@@ -120,9 +126,6 @@ export default {
     handleClick(tab, event) {
       console.log(tab, event);
     }
-  },
-  components:{
-    'my-panel': Panel
   }
 };
 </script>

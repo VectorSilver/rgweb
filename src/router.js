@@ -8,6 +8,7 @@ import MyInfo from './components/UserManagement/MyRG/MyInfo'
 import ChangePass from './components/UserManagement/MyRG/ChangePass'
 import FindPass from './components/UserManagement/FindPass'
 import Background from './views/backgroud/Background'
+import AddGoods from './views/backgroud/GoodsManagement/AddGoods'
 
 Vue.use(Router)
 
@@ -58,7 +59,14 @@ export default new Router({
     {
       path: '/background',
       name: 'background',
-      component: Background
+      component: Background,
+      children:[  // 嵌套子路由
+        {
+          path: '/background/addGoods',
+          name: 'addGoods',
+          component: AddGoods
+        }
+      ]
     }
   ]
 })
