@@ -15,7 +15,7 @@
                 <br />
                 <input type="password" placeholder="请再次输入密码" name="" class="login-input" />
                 <br>
-                <input type="number" placeholder="请输入手机号" name="" class="login-input" />
+                <input type="text" placeholder="请输入手机号" name="" class="login-input" />
                 <br>
                 <input type="email" placeholder="请输入邮箱" name="" class="login-input" />
                 <br>
@@ -24,8 +24,8 @@
                 <input type="text" placeholder="请输入密码提示问题答案" name="" class="login-input" />
                 <button class="login-input" id="login-button">立即注册</button>
             </form>
-            <div id="a-div">
-                <a href>已有帐号，去登陆>></a>
+            <div id="router-div">
+                <router-link to="/userLogin">已有帐号，去登陆>></router-link>
             </div>
         </div>
     </div>
@@ -56,9 +56,9 @@
 }
 
 #top-div {
-  height: 800px;
+  height: 700px;
   width: 100%;
-  background-color: #e72955;
+  background-color: #409EFF;
 }
 
 h1 {
@@ -66,9 +66,9 @@ h1 {
   top: 150px;
   left: 400px;
   color: rgb(255, 255, 255);
-  text-shadow: 0 0 20px #fdec84, 10px -10px 30px #ffae35,
-    20px -20px 40px #ec760c, -20px -60px 50px #cd4607, 0px -80px 60px #973717,
-    10px -40px 70px #451b0e;
+  // text-shadow: 0 0 20px #fdec84, 10px -10px 30px #ffae35,
+  //   20px -20px 40px #ec760c, -20px -60px 50px #cd4607, 0px -80px 60px #973717,
+  //   10px -40px 70px #451b0e;
 }
 
 #inner-div {
@@ -84,7 +84,7 @@ h1 {
 h3 {
   text-align: center;
   line-height: 50px;
-  color: rgb(105, 98, 100);
+  color: #606266;
 }
 
 .login-input {
@@ -96,13 +96,13 @@ h3 {
 
 #login-button {
   width: 255px;
-  background-color: #ff8800;
+  background-color: #67C23A;
   border: 0px;
   color: rgb(255, 255, 255);
   font-size: 15px;
 }
 
-#a-div {
+#router-div {
   margin-left: 200px;
 }
 
