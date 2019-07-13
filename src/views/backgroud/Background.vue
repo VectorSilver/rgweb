@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <header>
       <el-row>
         <el-col :span="24">
@@ -25,7 +26,9 @@
             <el-menu-item index="1-1">
               <router-link to="/background/addGoods">新增商品</router-link> 
               </el-menu-item>
-            <el-menu-item index="1-2">查询商品列表</el-menu-item>
+            <el-menu-item index="1-2">
+              <router-link to="/background/findGoods">查询商品列表</router-link>
+            </el-menu-item>
           </el-submenu>
 
           <el-submenu index="2">
@@ -33,7 +36,7 @@
               <i class="el-icon-folder"></i>
               <span slot="title">商品类目管理</span>
             </template>
-            <el-menu-item index="2-1">新增商品</el-menu-item>
+            <el-menu-item index="2-1">新增商品类目</el-menu-item>
             <el-menu-item index="2-2">查询商品类目</el-menu-item>
           </el-submenu>
 
@@ -112,7 +115,9 @@
         </el-card>
 
       </el-col>
+
     </el-row>
+
   </div>
 </template>
 
@@ -140,8 +145,18 @@ header {
 
 .panel {
   margin-top: 20px;
-  width: 800px;
+  width: 1200px;
   margin-left:20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+ 
+.router-link-active {
+  // text-decoration: none;
+  // color: yellow;
 }
 </style>
 

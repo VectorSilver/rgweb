@@ -9,10 +9,13 @@ import ChangePass from './components/UserManagement/MyRG/ChangePass'
 import FindPass from './components/UserManagement/FindPass'
 import Background from './views/backgroud/Background'
 import AddGoods from './views/backgroud/GoodsManagement/AddGoods'
+import FindGoods from './views/backgroud/GoodsManagement/FindGoods'
 
 Vue.use(Router)
 
 export default new Router({
+  linkActiveClass: '',
+
   // 配置路由匹配规则
   routes: [
     {
@@ -65,6 +68,11 @@ export default new Router({
           path: '/background/addGoods',
           name: 'addGoods',
           component: AddGoods
+        },
+        {
+          path: '/background/findGoods',
+          name: 'findGoods',
+          component: FindGoods
         }
       ]
     }
