@@ -7,6 +7,7 @@ import MyRG from './components/UserManagement/MyRG'
 import MyInfo from './components/UserManagement/MyRG/MyInfo'
 import ChangePass from './components/UserManagement/MyRG/ChangePass'
 import FindPass from './components/UserManagement/FindPass'
+import ShoppingCart from './components/ShoppingCart/ShoppingCart'
 import Background from './views/backgroud/Background'
 import AddGoods from './views/backgroud/GoodsManagement/AddGoods'
 import FindGoods from './views/backgroud/GoodsManagement/FindGoods'
@@ -60,6 +61,11 @@ export default new Router({
       path: '/findPass',
       name: 'findPass',
       component: FindPass
+    },
+    {
+      path: '/shoppingCart',
+      name: 'shoppingCart',
+      component: ShoppingCart
     },
     {
       path: '/background',

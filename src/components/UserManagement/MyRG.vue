@@ -4,12 +4,14 @@
     <my-header></my-header>
 
     <!-- 响应式布局 -->
-    <el-row>
+    <!-- <el-row>
+
       <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"><div class="grid-content"></div></el-col>
       <el-col :xs="16" :sm="16" :md="16" :lg="16" :xl="16">
-          <div class="grid-content">
+          <div class="grid-content"> -->
 
-            <el-page-header content="我的信息" id="PageHeader" title="首页"></el-page-header>
+            <el-page-header content="我的信息" id="PageHeader" title="首页" style="position:absolute; left:20%; "></el-page-header>
+
             <div id="left-box">
               <ul>
                 <li>
@@ -30,10 +32,10 @@
               </transition>
             </div>
             
-          </div>
-      </el-col>
+          <!-- </div> -->
+      <!-- </el-col>
       <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"><div class="grid-content"></div></el-col>
-    </el-row>
+    </el-row> -->
 
     </div>
 </template>
@@ -62,13 +64,14 @@
     width: 200px;
     position: absolute;
     top: 100px;
+    left: 20%;
   }
 
   #right-box {
     width: 800px;
     position: absolute;
     top: 100px;
-    left: 100px;
+    left: 25%;
   }
 
   .v-enter,

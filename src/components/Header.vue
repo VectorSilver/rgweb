@@ -20,7 +20,7 @@
             <router-link to="">我的订单</router-link>
           </li>
           <li class="header-li-right">
-            <router-link to="">购物车(0)</router-link>
+            <router-link to="/shoppingCart">购物车(0)</router-link>
           </li>
         </ul>
       </div>
