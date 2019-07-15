@@ -1,6 +1,12 @@
 <template>
     <div>
 
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item>商品类目管理</el-breadcrumb-item>
+        <el-breadcrumb-item>新增商品类目</el-breadcrumb-item>
+        </el-breadcrumb>
+        <br />
+
         <el-form ref="form" :model="form" label-width="120px">
             <el-form-item label="选择父类目">
                 <el-button>选择父类目</el-button>

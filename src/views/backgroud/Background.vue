@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <header>
       <el-row>
         <el-col :span="24">
@@ -109,12 +110,6 @@
       </el-col>
 
       <el-col :span="20" class="panel">
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item>商品管理</el-breadcrumb-item>
-          <el-breadcrumb-item>新增商品</el-breadcrumb-item>
-        </el-breadcrumb>
-        <br />
-
         <el-card class="box-card">
           <transition mode="out-in">
             <router-view></router-view>
@@ -122,6 +117,7 @@
         </el-card>
       </el-col>
     </el-row>
+
   </div>
 </template>
 
@@ -157,19 +153,19 @@ a {
 }
 
 // .router-link-active {
-  // text-decoration: none;
-  // color: yellow;
+// text-decoration: none;
+// color: yellow;
 // }
 
-  .v-enter,
-  .v-leave-to {
-    opacity: 0;
-    transform: translateX(150px);
-  }
-  .v-enter-active,
-  .v-leave-active {
-    transition: all 0.2s ease;
-  }
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(150px);
+}
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.2s ease;
+}
 </style>
 
 
