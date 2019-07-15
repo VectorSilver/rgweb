@@ -22,10 +22,12 @@
               <i class="el-icon-folder"></i>
               <span>商品管理</span>
             </template>
-            <el-menu-item index="1-1">
-              <router-link to="/background/addGoods">新增商品</router-link> 
-              </el-menu-item>
-            <el-menu-item index="1-2">查询商品列表</el-menu-item>
+            <router-link to="/background/addGoods">
+              <el-menu-item index="1-1">新增商品</el-menu-item>
+            </router-link>
+            <router-link to="/background/findGoods">
+              <el-menu-item index="1-2">查询商品列表</el-menu-item>
+            </router-link>
           </el-submenu>
 
           <el-submenu index="2">
@@ -33,8 +35,12 @@
               <i class="el-icon-folder"></i>
               <span slot="title">商品类目管理</span>
             </template>
-            <el-menu-item index="2-1">新增商品</el-menu-item>
-            <el-menu-item index="2-2">查询商品类目</el-menu-item>
+            <router-link to="/background/addGoodsType">
+              <el-menu-item index="2-1">新增商品类目</el-menu-item>
+            </router-link>
+            <router-link to="/background/findGoodsType">
+              <el-menu-item index="2-2">查询商品类目</el-menu-item>
+            </router-link>
           </el-submenu>
 
           <el-submenu index="3">
@@ -42,7 +48,9 @@
               <i class="el-icon-folder"></i>
               <span slot="title">商品描述管理</span>
             </template>
-            <el-menu-item index="3-1">查询商品描述</el-menu-item>
+            <router-link to="/background/findGoodsDesc">
+              <el-menu-item index="3-1">查询商品描述</el-menu-item>
+            </router-link>
           </el-submenu>
 
           <el-submenu index="4">
@@ -105,19 +113,19 @@
           <el-breadcrumb-item>商品管理</el-breadcrumb-item>
           <el-breadcrumb-item>新增商品</el-breadcrumb-item>
         </el-breadcrumb>
-        <br>
+        <br />
 
         <el-card class="box-card">
-          <router-view></router-view>
+          <transition mode="out-in">
+            <router-view></router-view>
+          </transition>
         </el-card>
-
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     return {};
@@ -140,8 +148,29 @@ header {
 
 .panel {
   margin-top: 20px;
-  width: 800px;
-  margin-left:20px;
+  width: 1200px;
+  margin-left: 20px;
 }
+
+a {
+  text-decoration: none;
+}
+
+// .router-link-active {
+  // text-decoration: none;
+  // color: yellow;
+// }
+
+  .v-enter,
+  .v-leave-to {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  .v-enter-active,
+  .v-leave-active {
+    transition: all 0.2s ease;
+  }
 </style>
+
+
 

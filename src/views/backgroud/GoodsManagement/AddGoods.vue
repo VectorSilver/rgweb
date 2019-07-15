@@ -33,6 +33,10 @@
             <el-form-item label="商品描述">
                 <wangEditor :catchData="catchData"></wangEditor>
             </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="onSubmit">提交</el-button>
+                <el-button @click="resetForm('ruleForm')">重置</el-button>
+            </el-form-item>
         </el-form>
 
     </div>
@@ -53,6 +57,12 @@ export default {
         catchData(value){
             // 接受子组件传过来的参数
             this.content = value;
+        },
+        onSubmit() {
+
+        },
+        resetForm(formName) {
+            this.$refs[formName].resetFields();
         }
     },
     components:{
