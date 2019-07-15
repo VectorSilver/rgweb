@@ -7,11 +7,17 @@ import MyRG from './components/UserManagement/MyRG'
 import MyInfo from './components/UserManagement/MyRG/MyInfo'
 import ChangePass from './components/UserManagement/MyRG/ChangePass'
 import FindPass from './components/UserManagement/FindPass'
-import Background from './views/Background'
+import Background from './views/backgroud/Background'
+import AddGoods from './views/backgroud/GoodsManagement/AddGoods'
+import FindGoods from './views/backgroud/GoodsManagement/FindGoods'
+import AddGoodsType from './views/backgroud/GoodsType/AddGoodsType'
+import FindGoodsType from './views/backgroud/GoodsType/FindGoodsType'
+import FindGoodsDesc from './views/backgroud/GoodsDesc/FindGoodsDesc'
 
 Vue.use(Router)
 
 export default new Router({
+
   // 配置路由匹配规则
   routes: [
     {
@@ -39,12 +45,12 @@ export default new Router({
       component: MyRG,
       children:[  // 嵌套子路由
         {
-          path: '/myInfo',
+          path: '/myRG/myInfo',
           name: 'myInfo',
           component: MyInfo
         },
         {
-          path: '/changePass',
+          path: '/myRG/changePass',
           name: 'changePass',
           component: ChangePass
         }
@@ -58,7 +64,34 @@ export default new Router({
     {
       path: '/background',
       name: 'background',
-      component: Background
+      component: Background,
+      children:[  // 嵌套子路由
+        {
+          path: '/background/addGoods',
+          name: 'addGoods',
+          component: AddGoods
+        },
+        {
+          path: '/background/findGoods',
+          name: 'findGoods',
+          component: FindGoods
+        },
+        {
+          path: '/background/addGoodsType',
+          name: 'addGoodsType',
+          component: AddGoodsType
+        },
+        {
+          path: '/background/findGoodsType',
+          name: 'findGoodsType',
+          component: FindGoodsType
+        },
+        {
+          path: '/background/findGoodsDesc',
+          name: 'findGoodsDesc',
+          component: FindGoodsDesc
+        }
+      ]
     }
   ]
 })
