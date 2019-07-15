@@ -1,6 +1,12 @@
 <template>
   <div>
 
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb-item>商品描述管理</el-breadcrumb-item>
+      <el-breadcrumb-item>查询商品描述</el-breadcrumb-item>
+    </el-breadcrumb>
+    <br />
+
     <div style="margin-top: 20px">
       <el-button @click="changeGoods()">编辑</el-button>
       <el-button @click="deleteGoods()">删除</el-button>
