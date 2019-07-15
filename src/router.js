@@ -14,6 +14,7 @@ import FindGoods from './views/backgroud/GoodsManagement/FindGoods'
 import AddGoodsType from './views/backgroud/GoodsType/AddGoodsType'
 import FindGoodsType from './views/backgroud/GoodsType/FindGoodsType'
 import FindGoodsDesc from './views/backgroud/GoodsDesc/FindGoodsDesc'
+import Categories from './views/backgroud/ContentManagement/Categories'
 
 Vue.use(Router)
 
@@ -96,6 +97,11 @@ export default new Router({
           path: '/background/findGoodsDesc',
           name: 'findGoodsDesc',
           component: FindGoodsDesc
+        },
+        {
+          path: '/background/categories',
+          name: 'categories',
+          component: Categories
         }
       ]
     }

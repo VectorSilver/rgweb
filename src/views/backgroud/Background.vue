@@ -76,7 +76,9 @@
               <i class="el-icon-folder"></i>
               <span slot="title">内容管理</span>
             </template>
-            <el-menu-item index="6-1">内容分类管理</el-menu-item>
+            <router-link to="/background/categories">
+              <el-menu-item index="6-1">内容分类管理</el-menu-item>
+            </router-link>
             <el-menu-item index="6-2">内容管理</el-menu-item>
           </el-submenu>
 
@@ -109,7 +111,7 @@
         </el-menu>
       </el-col>
 
-      <el-col :span="20" class="panel">
+      <el-col :span="20" style="position: relative;">
         <el-card class="box-card">
           <transition mode="out-in">
             <router-view></router-view>
@@ -140,12 +142,6 @@ header {
   background-color: #409eff;
   height: 50px;
   line-height: 50px;
-}
-
-.panel {
-  margin-top: 20px;
-  width: 1200px;
-  margin-left: 20px;
 }
 
 a {
