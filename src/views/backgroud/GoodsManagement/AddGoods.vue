@@ -8,7 +8,7 @@
 
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="商品类目">
-        <el-button @click="dialogTreeVisible = true">选择类目</el-button>
+        <el-button @click="dialogTreeVisible = true; getCategories()">选择类目</el-button>
       </el-form-item>
       <el-form-item label="商品标题">
         <el-input v-model="form.name"></el-input>
@@ -46,7 +46,7 @@
 
     <!-- Tree -->
     <el-dialog title="选择类目" :visible.sync="dialogTreeVisible">
-      <el-tree :data="categoriesList" :props="defaultProps" @click="getCategories()"></el-tree>
+      <el-tree :data="categoriesList" :props="defaultProps"></el-tree>
 
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogTreeVisible = false">取 消</el-button>
@@ -93,12 +93,20 @@ export default {
     },
     getCategories() {
       //获取商品类别
+<<<<<<< HEAD
       this.axios.get('http://localhost:8080/manage/category/get_category.do').then((response) => {
         console.log(response);
         // this.categoriesList = response.data;
       }).catch((error) => {
         console.log(error);
         alert('网络错误，不能访问');
+=======
+      this.axios.get('/api/item/cat/list').then((response) => {
+        // alert(response.data);
+        this.categoriesList = response.data;
+      }).catch((error) => {
+        alert(error);
+>>>>>>> 445526e93b9ca24cf1521e0551d567fef9a45410
       })
     }
   },

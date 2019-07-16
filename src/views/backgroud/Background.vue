@@ -148,11 +148,6 @@ a {
   text-decoration: none;
 }
 
-// .router-link-active {
-// text-decoration: none;
-// color: yellow;
-// }
-
 .v-enter,
 .v-leave-to {
   opacity: 0;
