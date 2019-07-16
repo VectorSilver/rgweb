@@ -46,11 +46,11 @@
 
     <!-- Tree -->
     <el-dialog title="选择类目" :visible.sync="dialogTreeVisible">
-      <el-tree :data="categoriesList" :props="defaultProps"></el-tree>
+      <el-tree :data="categoriesList" :props="defaultProps" show-checkbox></el-tree>
 
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogTreeVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogTreeVisible = false">确 定</el-button>
+        <el-button type="primary" @click="dialogTreeVisible = false; getCheckedNodes()" highlight-current="true">确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -93,21 +93,15 @@ export default {
     },
     getCategories() {
       //获取商品类别
-<<<<<<< HEAD
-      this.axios.get('http://localhost:8080/manage/category/get_category.do').then((response) => {
-        console.log(response);
-        // this.categoriesList = response.data;
-      }).catch((error) => {
-        console.log(error);
-        alert('网络错误，不能访问');
-=======
       this.axios.get('/api/item/cat/list').then((response) => {
         // alert(response.data);
         this.categoriesList = response.data;
       }).catch((error) => {
-        alert(error);
->>>>>>> 445526e93b9ca24cf1521e0551d567fef9a45410
+        console.log(error);
       })
+    },
+    getCheckedNodes() {
+      console.log(this.$refs.tree.getCheckedNodes());
     }
   },
   components: {
