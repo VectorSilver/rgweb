@@ -28,10 +28,9 @@
       <el-form-item label="商品图片">
         <el-upload
           class="upload-demo"
-          action="https://  "
+          action="https://manage/product/upload.do"
           multiple
           :limit="3"
-          :file-list="fileList"
         >
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
@@ -47,7 +46,7 @@
 
     <!-- Tree -->
     <el-dialog title="选择类目" :visible.sync="dialogTreeVisible">
-      <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+      <el-tree :data="categoriesList" :props="defaultProps" @click="getCategories()"></el-tree>
 
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogTreeVisible = false">取 消</el-button>
@@ -58,12 +57,12 @@
 </template>
 
 <script>
-import wangEditor from "./wangEditor";
+import wangEditor from './wangEditor'
+import axios from 'axios'
 
 export default {
   data() {
     return {
-      dialogTreeVisible: false,
       form: {
         name: "",
         region: "",
@@ -75,63 +74,8 @@ export default {
         desc: ""
       },
       formLabelWidth: "120px",
-      data: [
-        {
-          label: "一级 1",
-          children: [
-            {
-              label: "二级 1-1",
-              children: [
-                {
-                  label: "三级 1-1-1"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: "一级 2",
-          children: [
-            {
-              label: "二级 2-1",
-              children: [
-                {
-                  label: "三级 2-1-1"
-                }
-              ]
-            },
-            {
-              label: "二级 2-2",
-              children: [
-                {
-                  label: "三级 2-2-1"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: "一级 3",
-          children: [
-            {
-              label: "二级 3-1",
-              children: [
-                {
-                  label: "三级 3-1-1"
-                }
-              ]
-            },
-            {
-              label: "二级 3-2",
-              children: [
-                {
-                  label: "三级 3-2-1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      dialogTreeVisible: false,
+      categoriesList: [], //存放后台传回的类目
       defaultProps: {
         children: "children",
         label: "label"
@@ -147,8 +91,15 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
-    handleNodeClick(data) {
-      console.log(data);
+    getCategories() {
+      //获取商品类别
+      this.axios.get('http://localhost:8080/manage/category/get_category.do').then((response) => {
+        console.log(response);
+        // this.categoriesList = response.data;
+      }).catch((error) => {
+        console.log(error);
+        alert('网络错误，不能访问');
+      })
     }
   },
   components: {
