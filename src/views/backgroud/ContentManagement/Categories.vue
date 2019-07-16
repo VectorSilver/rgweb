@@ -72,7 +72,23 @@
         }
         data.children.push(newChild);
       },
-        
+        handleEdit:function () {
+        if(this.tableData.length==0){
+          this.$message.warning("请选择表名!");
+          return false;
+        } else if(this.saveType == 0){
+          this.selectData =[];
+          this.$message.warning("请先保存当前编辑项！");
+          return false;
+        }else if(this.multipleSelection.length ==0)
+        {
+          this.$message.warning("请选择修改数据！");
+          return false;
+        }else{
+          this.saveType=1;
+          this.selectData = this.multipleSelection;
+        }
+      },
 
       remove(node, data) {
         const parent = node.parent;
@@ -88,7 +104,7 @@
             <span>
               <el-button size="mini" type="text" on-click={ () => this.append(data) }>新增</el-button>
               <el-button size="mini" type="text" on-click={ () => this.remove(node, data) }>删除</el-button>
-              <el-button size="mini" type="text" >修改</el-button>
+              <el-button size="mini" type="text" on-click={ () => this.handleEdit }>修改</el-button>
             </span>
           </span>);
       }
