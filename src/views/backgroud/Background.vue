@@ -87,7 +87,9 @@
               <i class="el-icon-folder"></i>
               <span slot="title">订单管理</span>
             </template>
-            <el-menu-item index="7-1">订单列表</el-menu-item>
+            <router-link to="/background/orderManagement">
+              <el-menu-item index="7-1">订单列表</el-menu-item>
+            </router-link>
           </el-submenu>
 
           <el-submenu index="8">
