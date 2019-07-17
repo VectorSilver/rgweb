@@ -8,14 +8,14 @@
         <br />
 
         <el-form ref="form" :model="form" label-width="120px">
-            <el-form-item label="选择父类目">
+            <el-form-item label="选择父类目" prop="">
                 <el-button>选择父类目</el-button>
             </el-form-item>
-            <el-form-item label="类目名称">
+            <el-form-item label="类目名称" prop="">
                 <el-input v-model="form.name"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="onSubmit">提交</el-button>
+                <el-button type="primary" @click="onSubmit()">提交</el-button>
                 <el-button @click="resetForm('ruleForm')">重置</el-button>
             </el-form-item>
         </el-form>
