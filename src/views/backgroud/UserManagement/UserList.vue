@@ -10,7 +10,7 @@
         :page-size="100"
         layout="total, sizes, prev, pager, next, jumper"
         :total="400">
-        </el-pagination>
+        </el-pagination>  
     </div>
     <div class="userb">
         <table>
