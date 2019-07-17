@@ -109,7 +109,6 @@
               <i class="el-icon-folder"></i>
               <span slot="title">用户管理</span>
             </template>
-            <el-menu-item index="8-1">管理员登陆</el-menu-item>
             <el-menu-item index="8-2">用户列表</el-menu-item>
           </el-submenu>
         </el-menu>
