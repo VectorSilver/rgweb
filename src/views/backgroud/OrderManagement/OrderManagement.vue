@@ -13,7 +13,7 @@
         </div>
         <div class=" messagediv">
             <table>
-                <tr class="hango">
+                <tr class="hang">
                     <th class="tho">订单编号</th>
                     <th class="tht">订单金额</th>
                     <th class="ths">订单详情</th>
@@ -129,9 +129,6 @@ table{
 }
 table,tr,th ,td{
     border: 1px solid black;
-}
-.hango{
-    width: 30px;
 }
 .tho{
     width: 150px;
