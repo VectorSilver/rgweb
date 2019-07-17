@@ -8,7 +8,7 @@
 
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="商品类目">
-        <el-button @click="dialogTreeVisible = true">选择类目</el-button>
+        <el-button @click="dialogTreeVisible = true; getCategories()">选择类目</el-button>
       </el-form-item>
       <el-form-item label="商品标题">
         <el-input v-model="form.name"></el-input>
@@ -28,10 +28,9 @@
       <el-form-item label="商品图片">
         <el-upload
           class="upload-demo"
-          action="https://  "
+          action="https://manage/product/upload.do"
           multiple
           :limit="3"
-          :file-list="fileList"
         >
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
@@ -47,23 +46,23 @@
 
     <!-- Tree -->
     <el-dialog title="选择类目" :visible.sync="dialogTreeVisible">
-      <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+      <el-tree :data="categoriesList" :props="defaultProps" show-checkbox></el-tree>
 
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogTreeVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogTreeVisible = false">确 定</el-button>
+        <el-button type="primary" @click="dialogTreeVisible = false; getCheckedNodes()" highlight-current="true">确 定</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import wangEditor from "./wangEditor";
+import wangEditor from './wangEditor'
+import axios from 'axios'
 
 export default {
   data() {
     return {
-      dialogTreeVisible: false,
       form: {
         name: "",
         region: "",
@@ -75,63 +74,8 @@ export default {
         desc: ""
       },
       formLabelWidth: "120px",
-      data: [
-        {
-          label: "一级 1",
-          children: [
-            {
-              label: "二级 1-1",
-              children: [
-                {
-                  label: "三级 1-1-1"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: "一级 2",
-          children: [
-            {
-              label: "二级 2-1",
-              children: [
-                {
-                  label: "三级 2-1-1"
-                }
-              ]
-            },
-            {
-              label: "二级 2-2",
-              children: [
-                {
-                  label: "三级 2-2-1"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: "一级 3",
-          children: [
-            {
-              label: "二级 3-1",
-              children: [
-                {
-                  label: "三级 3-1-1"
-                }
-              ]
-            },
-            {
-              label: "二级 3-2",
-              children: [
-                {
-                  label: "三级 3-2-1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      dialogTreeVisible: false,
+      categoriesList: [], //存放后台传回的类目
       defaultProps: {
         children: "children",
         label: "label"
@@ -147,8 +91,17 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
-    handleNodeClick(data) {
-      console.log(data);
+    getCategories() {
+      //获取商品类别
+      this.axios.get('/api/item/cat/list').then((response) => {
+        // alert(response.data);
+        this.categoriesList = response.data;
+      }).catch((error) => {
+        console.log(error);
+      })
+    },
+    getCheckedNodes() {
+      console.log(this.$refs.tree.getCheckedNodes());
     }
   },
   components: {
