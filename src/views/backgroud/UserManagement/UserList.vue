@@ -1,10 +1,16 @@
 <template>
-    <div>
-         <div class="headdiv">
-        <input type="button" value="上一页" onclick="up()"/>
-        <input type="text" class="chaxun" value="1">
-        <input type="button" value="上一页" onclick="down()"/>
-        <button class="chaan">查询</button>
+<div>
+    <div class="headdiv">
+        <span class="demonstration">查询页数</span>
+        <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage4"
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="400">
+        </el-pagination>
     </div>
     <div class="userb">
         <table>
@@ -47,7 +53,7 @@
         </table>
     </div> 
 
-    </div>
+</div>
 </template>
 
 <script>
@@ -56,7 +62,56 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-
+<style lang="scss" scoped>
+.headdiv{
+    width: 1150px;
+    height: 70px;
+    margin: 0 auto;
+    // background:#eee;
+}
+.messagediv{
+    width: 1150px;
+    // background: #eee;
+    margin: 0 auto;
+}
+table{
+    border-collapse:collapse;
+}
+table,tr,th ,td{
+    border: 1px solid black;
+}
+.tho{
+    width: 150px;
+    text-align:center;
+}
+.tht{
+    width: 100px;
+    text-align:center;
+}
+.ths{
+    width: 200px;
+    text-align:center;
+}
+.thf{
+    width: 100px;
+    text-align:center;
+}
+.thfi{
+    width: 200px;
+    text-align:center;
+}
+.thsi{
+    width: 200px;
+    text-align:center;
+}
+.thse{
+    width: 150px;
+    text-align: center;
+}
+.tha{
+    width: 100px;
+    text-align: center;
+}
+ 
 </style>
 
