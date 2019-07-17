@@ -8,17 +8,27 @@
         <br />
 
         <el-form ref="form" :model="form" label-width="120px">
-            <el-form-item label="选择父类目" prop="">
-                <el-button>选择父类目</el-button>
+            <el-form-item label="选择父类目">
+                <el-button @click="getCategories(); ">选择父类目</el-button>
             </el-form-item>
-            <el-form-item label="类目名称" prop="">
+            <el-form-item label="类目名称" prop="name">
                 <el-input v-model="form.name"></el-input>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" @click="onSubmit()">提交</el-button>
-                <el-button @click="resetForm('ruleForm')">重置</el-button>
+                <el-button @click="resetForm('form')">重置</el-button>
             </el-form-item>
         </el-form>
+
+        <!-- Tree -->
+            <el-dialog title="选择类目" :visible.sync="dialogTreeVisible">
+                <el-tree :data="categoriesList" :props="defaultProps" show-checkbox></el-tree>
+
+                <div slot="footer" class="dialog-footer">
+                    <el-button @click="dialogTreeVisible = false">取 消</el-button>
+                    <el-button type="primary" @click="dialogTreeVisible = false; getCheckedNodes()" highlight-current="true">确 定</el-button>
+                </div>
+            </el-dialog>
 
     </div>
 </template>
@@ -29,16 +39,26 @@ export default {
         return {
             form:{
                 name:'',
+            },
+            dialogTreeVisible: false, 
+            categoriesList: [], //存放后台传回的类目
+            defaultProps: {
+                children: "children",
+                label: "label"
             }
         }
     },
     methods:{
+        getCategories() { //获取类目
+
+        },
         onSubmit() {
 
         },
-        resetForm(formName) {
+        resetForm(formName) { //重置表单
+            // alert('resetForm');
             this.$refs[formName].resetFields();
-        }
+        },
     }
 }
 </script>
