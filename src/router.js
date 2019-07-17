@@ -8,12 +8,14 @@ import MyInfo from './components/UserManagement/MyRG/MyInfo'
 import ChangePass from './components/UserManagement/MyRG/ChangePass'
 import FindPass from './components/UserManagement/FindPass'
 import ShoppingCart from './components/ShoppingCart/ShoppingCart'
+
 import Background from './views/backgroud/Background'
 import AddGoods from './views/backgroud/GoodsManagement/AddGoods'
 import FindGoods from './views/backgroud/GoodsManagement/FindGoods'
 import AddGoodsType from './views/backgroud/GoodsType/AddGoodsType'
 import FindGoodsType from './views/backgroud/GoodsType/FindGoodsType'
 import FindGoodsDesc from './views/backgroud/GoodsDesc/FindGoodsDesc'
+import Cms from './views/backgroud/ContentManagement/CMS'
 import Categories from './views/backgroud/ContentManagement/Categories'
 import OrderManagement from './views/backgroud/OrderManagement/OrderManagement'
 
@@ -100,7 +102,9 @@ export default new Router({
           component: FindGoodsDesc
         },
         {
-          path: ''
+          path: '/background/cms',
+          name: 'cms',
+          component: Cms
         },
         {
           path: '/background/categories',
