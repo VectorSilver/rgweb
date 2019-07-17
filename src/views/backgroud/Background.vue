@@ -109,7 +109,9 @@
               <i class="el-icon-folder"></i>
               <span slot="title">用户管理</span>
             </template>
-            <el-menu-item index="8-2">用户列表</el-menu-item>
+            <router-link to="/background/userList">
+              <el-menu-item index="8-2">用户列表</el-menu-item>
+            </router-link>
           </el-submenu>
         </el-menu>
       </el-col>

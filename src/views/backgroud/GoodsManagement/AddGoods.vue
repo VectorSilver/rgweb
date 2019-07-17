@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item>商品管理</el-breadcrumb-item>
       <el-breadcrumb-item>新增商品</el-breadcrumb-item>
@@ -53,6 +54,7 @@
         <el-button type="primary" @click="dialogTreeVisible = false; getCheckedNodes()" highlight-current="true">确 定</el-button>
       </div>
     </el-dialog>
+
   </div>
 </template>
 
@@ -80,7 +82,7 @@ export default {
     };
   },
   methods: {
-    catchData(value) { //接受子组件传过来的参数
+    catchData(value) { //接受wangEditor子组件传过来的参数
       this.content = value;
     },
     submitForm(form) { //表单提交
@@ -92,7 +94,6 @@ export default {
 
       this.axios.post('/manage/product/save.do', form, config).then((response) => {
         alert('新增商品成功');
-
       }).catch((error) => {
         alert(error);
       })

@@ -18,6 +18,7 @@ import FindGoodsDesc from './views/backgroud/GoodsDesc/FindGoodsDesc'
 import Cms from './views/backgroud/ContentManagement/CMS'
 import Categories from './views/backgroud/ContentManagement/Categories'
 import OrderManagement from './views/backgroud/OrderManagement/OrderManagement'
+import UserList from './views/backgroud/UserManagement/UserList'
 
 Vue.use(Router)
 
@@ -115,6 +116,11 @@ export default new Router({
           path: '/background/orderManagement',
           name: 'orderManagement',
           component: OrderManagement
+        },
+        {
+          path: '/background/userList',
+          name: 'userList',
+          component: UserList
         }
       ]
     }
