@@ -79,7 +79,9 @@
             <router-link to="/background/categories">
               <el-menu-item index="6-1">内容分类管理</el-menu-item>
             </router-link>
-            <el-menu-item index="6-2">内容管理</el-menu-item>
+            <router-link to="/background/cms">
+              <el-menu-item index="6-2">内容管理</el-menu-item>
+            </router-link>
           </el-submenu>
 
           <el-submenu index="7">
