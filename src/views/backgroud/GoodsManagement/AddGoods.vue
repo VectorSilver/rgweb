@@ -1,29 +1,30 @@
 <template>
   <div>
+
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item>商品管理</el-breadcrumb-item>
       <el-breadcrumb-item>新增商品</el-breadcrumb-item>
     </el-breadcrumb>
     <br />
 
-    <el-form ref="form" :model="form" label-width="80px">
+    <el-form :model="form" ref="form" label-width="80px">
       <el-form-item label="商品类目">
         <el-button @click="dialogTreeVisible = true; getCategories()">选择类目</el-button>
       </el-form-item>
-      <el-form-item label="商品标题">
-        <el-input v-model="form.name"></el-input>
+      <el-form-item label="商品标题" prop="title">
+        <el-input v-model="form.title"></el-input>
       </el-form-item>
-      <el-form-item label="商品卖点">
-        <el-input type="textarea"></el-input>
+      <el-form-item label="商品卖点" prop="sellPoint">
+        <el-input type="textarea" v-model="form.sellPoint"></el-input>
       </el-form-item>
-      <el-form-item label="商品价格">
-        <el-input v-model="form.name"></el-input>
+      <el-form-item label="商品价格" prop="price">
+        <el-input v-model="form.price"></el-input>
       </el-form-item>
-      <el-form-item label="库存数量">
-        <el-input v-model="form.name"></el-input>
+      <el-form-item label="库存" prop="number">
+        <el-input v-model="form.number"></el-input>
       </el-form-item>
-      <el-form-item label="条形码">
-        <el-input v-model="form.name"></el-input>
+      <el-form-item label="条形码" prop="barCode">
+        <el-input v-model="form.barCode"></el-input>
       </el-form-item>
       <el-form-item label="商品图片">
         <el-upload
@@ -35,12 +36,12 @@
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
       </el-form-item>
-      <el-form-item label="商品描述">
+      <el-form-item label="商品描述" v-model="form.desc" prop="name">
         <wangEditor :catchData="catchData"></wangEditor>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">提交</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
+        <el-button type="primary" @click="submitForm(this.form)">提交</el-button>
+        <el-button @click="resetForm('form')">重置</el-button>
       </el-form-item>
     </el-form>
 
@@ -53,6 +54,7 @@
         <el-button type="primary" @click="dialogTreeVisible = false; getCheckedNodes()" highlight-current="true">确 定</el-button>
       </div>
     </el-dialog>
+
   </div>
 </template>
 
@@ -63,18 +65,15 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      form: {
-        name: "",
-        region: "",
-        date1: "",
-        date2: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: ""
+      form: { //表单数据
+        title: '', 
+        sellPoint: '',
+        price: '',
+        number: '',
+        barCode: '',
+        desc: ''
       },
-      formLabelWidth: "120px",
-      dialogTreeVisible: false,
+      dialogTreeVisible: false, 
       categoriesList: [], //存放后台传回的类目
       defaultProps: {
         children: "children",
@@ -83,18 +82,28 @@ export default {
     };
   },
   methods: {
-    catchData(value) {
-      // 接受子组件传过来的参数
+    catchData(value) { //接受wangEditor子组件传过来的参数
       this.content = value;
     },
-    onSubmit() {},
-    resetForm(formName) {
+    submitForm(form) { //表单提交
+      let config = {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+
+      this.axios.post('/manage/product/save.do', form, config).then((response) => {
+        alert('新增商品成功');
+      }).catch((error) => {
+        alert(error);
+      })
+    },
+    resetForm(formName) { //重置表单
+      // alert('resetForm');
       this.$refs[formName].resetFields();
     },
-    getCategories() {
-      //获取商品类别
+    getCategories() { //获取商品类别
       this.axios.get('/api/item/cat/list').then((response) => {
-        // alert(response.data);
         this.categoriesList = response.data;
       }).catch((error) => {
         console.log(error);
