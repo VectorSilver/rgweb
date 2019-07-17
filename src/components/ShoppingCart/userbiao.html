@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>用户列表</title>
+    <!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
 </head>
 <style>
     .headdiv{
@@ -59,6 +64,11 @@
 </style>
 <body>
     <div class="headdiv">
+            <el-switch
+            v-model="value"
+            active-color="#13ce66"
+            inactive-color="#ff4949">
+          </el-switch>
         <input type="button" value="上一页" onclick="up()"/>
         <input type="text" class="chaxun" value="1">
         <input type="button" value="上一页" onclick="down()"/>
@@ -103,6 +113,7 @@
                 <td class="thsi">2019.07.15</td>
             </tr>
         </table>
-    </div>       
+    </div> 
+      
 </body>
 </html>
