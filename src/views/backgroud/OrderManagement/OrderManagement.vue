@@ -8,7 +8,7 @@
         <br />
     <div class="headdiv">
             <input type="text" class="chaxun" value="订单号">
-            <button class="chaan">查询</button>
+            <button class="chaxun">查询</button>
             <input type="button" class="shuaxin" value="刷新">
         </div>
         <div class=" messagediv">
@@ -31,11 +31,6 @@
                     <td class="thfi">成都</td>
                     <td class="thsi">13888888888</td>
                     <td class="thse">
-                        <select name="select" id="select">
-                            <option value="">未付款</option>
-                            <option value="">付款未发货</option>
-                            <option value="">付款已发货</option>
-                        </select>
                     </td>
                     <td class="tha">
                         <select name="select" id="select">
@@ -55,11 +50,6 @@
                     <td class="thfi">成都</td>
                     <td class="thsi">13999999999</td>
                     <td class="thse">
-                        <select name="select" id="select">
-                            <option value="">未付款</option>
-                            <option value="">付款未发货</option>
-                            <option value="">付款已发货</option>
-                        </select>
                     </td>
                     <td class="tha">
                         <select name="select" id="select">
@@ -79,11 +69,6 @@
                     <td class="thfi">成都</td>
                     <td class="thsi">13900000000</td>
                     <td class="thse">
-                        <select name="select" id="select">
-                            <option value="">未付款</option>
-                            <option value="">付款未发货</option>
-                            <option value="">付款已发货</option>
-                        </select>
                     </td>
                     <td class="tha">                       
                         <select name="select" id="select">
@@ -117,7 +102,7 @@ export default {
 }
 .chaxun{
     margin-top: 20px;
-    margin-left: 45px;
+    margin-left: 5px;
 }
 .messagediv{
     width: 1150px;

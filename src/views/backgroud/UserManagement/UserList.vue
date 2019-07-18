@@ -10,45 +10,45 @@
         :page-size="100"
         layout="total, sizes, prev, pager, next, jumper"
         :total="400">
-        </el-pagination>  
+        </el-pagination> 
     </div>
     <div class="userb">
         <table>
             <tr class="hang">
-            <th class="tho">账号</th>
-            <th class="tht">用户名</th>
-            <th class="ths">密码</th>
-            <th class="thf">注册手机号</th>
-            <th class="thy">注册邮箱</th>
-            <th class="thfi">创建日期</th>
-            <th class="thsi">更新日期</th>
+            <th class="id">账号</th>
+            <th class="name">用户名</th>
+            <th class="password">密码</th>
+            <th class="phone">注册手机号</th>
+            <th class="email">注册邮箱</th>
+            <th class="createTime">创建日期</th>
+            <th class="updataTime">更新日期</th>
             </tr>
             <tr class="hang">
-                <td class="tho">123456</td>
-                <td class="tht">张三</td>
-                <td class="ths">12345678</td>
-                <td class="thf">13888888888</td>
-                <td class="thy">13888888888@163.com</td>
-                <td class="thfi">2019.07.15</td>
-                <td class="thsi">2019.07.15</td>
+                <td class="id">123456</td>
+                <td class="name">张三</td>
+                <td class="password">12345678</td>
+                <td class="phone">13888888888</td>
+                <td class="email">13888888888@163.com</td>
+                <td class="createTime">2019.07.15</td>
+                <td class="updataTime">2019.07.15</td>
             </tr>
             <tr class="hang">
-                <td class="tho">123457</td>
-                <td class="tht">李四</td>
-                <td class="ths">12345678</td>
-                <td class="thf">13999999999</td>
-                <td class="thy">13999999999@163.com</td>
-                <td class="thfi">2019.07.15</td>
-                <td class="thsi">2019.07.15</td>
+                <td class="id">123457</td>
+                <td class="name">李四</td>
+                <td class="password">12345678</td>
+                <td class="phone">13999999999</td>
+                <td class="email">13999999999@163.com</td>
+                <td class="createTime">2019.07.15</td>
+                <td class="updataTime">2019.07.15</td>
             </tr>
             <tr class="hang">
-                <td class="tho">123458</td>
-                <td class="tht">王五</td>
-                <td class="ths">12345678</td>
-                <td class="thf">13900000000</td>
-                <td class="thy">13900000000@163.com</td>
-                <td class="thfi">2019.07.15</td>
-                <td class="thsi">2019.07.15</td>
+                <td class="id">123458</td>
+                <td class="name">王五</td>
+                <td class="password">12345678</td>
+                <td class="phone">13900000000</td>
+                <td class="email">13900000000@163.com</td>
+                <td class="createTime">2019.07.15</td>
+                <td class="updataTime">2019.07.15</td>
             </tr>
         </table>
     </div> 
@@ -58,6 +58,22 @@
 
 <script>
 export default {
+    methods: {
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
+      }
+    },
+    data() {
+      return {
+        currentPage1: 5,
+        currentPage2: 5,
+        currentPage3: 5,
+        currentPage4: 4
+      };
+    } 
     
 }
 </script>
@@ -80,31 +96,31 @@ table{
 table,tr,th ,td{
     border: 1px solid black;
 }
-.tho{
+.id{
     width: 150px;
     text-align:center;
 }
-.tht{
+.name{
     width: 100px;
     text-align:center;
 }
-.ths{
+.password{
     width: 200px;
     text-align:center;
 }
-.thf{
+.phone{
     width: 100px;
     text-align:center;
 }
-.thfi{
+.email{
     width: 200px;
     text-align:center;
 }
-.thsi{
+.createTime{
     width: 200px;
     text-align:center;
 }
-.thse{
+.updataTime{
     width: 150px;
     text-align: center;
 }
