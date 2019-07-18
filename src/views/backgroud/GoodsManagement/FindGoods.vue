@@ -49,7 +49,8 @@ export default {
   },
   methods: {
     getGoodsList() { //从后台获取商品列表
-      this.axios.get('/api/manage/product/list.do').then((response) => {
+      this.axios.get('/api1/manage/product/list.do').then((response) => {
+        alert(response);
         this.GoodsList = response.data;
       }).catch((error) => {
         alert(error);

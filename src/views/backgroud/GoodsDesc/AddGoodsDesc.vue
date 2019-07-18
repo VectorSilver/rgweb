@@ -36,11 +36,15 @@
 export default {
     data() {
         return{
-            dialogTreeVisible: false
+            dialogTreeVisible: false,
+            defaultProps: {
+                children: "children",
+                label: "label"
+            }
         }
     },
     methods:{
-        
+
     }
 }
 </script>
