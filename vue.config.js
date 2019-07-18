@@ -35,28 +35,25 @@ module.exports = {
         https: false,
         hotOnly: false,                             // https:{type:Boolean}
         proxy: {                                        // 配置跨域
-            '/api1':{
-                target:'http://10.25.193.177:9999', //源地址
-                changeOrigin:true,                  //改变源
-                ws:true,                            //是否代理websockets
+            // '/api':{
+            //     target:'http://10.25.193.177:9999', //源地址
+            //     changeOrigin:true,                  //改变源
+            //     ws:true,                            //是否代理websockets
+            //     pathRewrite:{
+            //         '^/api':''
+            //     }
+            // }
+            '/api':{
+                target:'http://10.25.193.205:9999',
+                changeOrigin:true, 
+                ws:true,
                 pathRewrite:{
                     '^/api':''
                 }
             }
-            // '/api2':{
-            //     target:'http://192.168.58.1:9999', 
-            //     changeOrigin:true, 
-            //     ws:true,
-            //     pathRewrite:{
-            //         '^/api':''
-            //     }
-            // },
         },                                           // 配置跨域处理,只有一个代理
         before: app => { }
     },
     // 第三方插件配置
     pluginOptions: {}
 }
-
-// http://10.25.193.177:9999 商品类目
-// http://192.168.58.1:9999 商品列表

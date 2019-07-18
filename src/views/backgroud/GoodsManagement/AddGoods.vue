@@ -92,7 +92,7 @@ export default {
         }
       }
 
-      this.axios.post('/manage/product/save.do', {form:this.form}, config).then((response) => {
+      this.axios.post(' ', {form:this.form}, config).then((response) => {
         alert('新增商品成功');
       }).catch((error) => {
         alert(error);
@@ -102,7 +102,7 @@ export default {
       this.$refs[formName].resetFields();
     },
     getCategories() { //获取商品类别
-      this.axios.get('/api1/item/cat/list').then((response) => {
+      this.axios.get('/api/item/cat/list').then((response) => {
         this.categoriesList = response.data;
       }).catch((error) => {
         console.log(error);
