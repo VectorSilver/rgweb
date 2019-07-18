@@ -92,14 +92,13 @@ export default {
         }
       }
 
-      this.axios.post('/manage/product/save.do', form, config).then((response) => {
+      this.axios.post('/manage/product/save.do', {form:this.form}, config).then((response) => {
         alert('新增商品成功');
       }).catch((error) => {
         alert(error);
       })
     },
     resetForm(formName) { //重置表单
-      // alert('resetForm');
       this.$refs[formName].resetFields();
     },
     getCategories() { //获取商品类别

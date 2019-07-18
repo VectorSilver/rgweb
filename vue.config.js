@@ -1,18 +1,6 @@
 
 //使用http-proxy-middleware 代理解决跨域
 
-// module.exports = {
-//     proxyTable: { 
-//         '/api': {  //使用"/api"来代替"http://10.25.193.177:9999"
-//           target: 'http://10.25.193.177:9999', //源地址
-//           changeOrigin: true, //改变源
-//           pathRewrite: {
-//             '^/api': '^/api' //路径重写
-//           }
-//         }
-//     }
-// }
-
 
 module.exports = {
     // 基本路径

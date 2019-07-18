@@ -49,8 +49,11 @@
               <i class="el-icon-folder"></i>
               <span slot="title">商品描述管理</span>
             </template>
+            <router-link to="/background/addGoodsDesc">
+              <el-menu-item index="3-1">新增商品描述</el-menu-item>
+            </router-link>
             <router-link to="/background/findGoodsDesc">
-              <el-menu-item index="3-1">查询商品描述</el-menu-item>
+              <el-menu-item index="3-2">查询商品描述</el-menu-item>
             </router-link>
           </el-submenu>
 

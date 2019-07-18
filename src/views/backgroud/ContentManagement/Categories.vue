@@ -1,5 +1,12 @@
 <template>
  <div class="custom-tree-container">
+
+  <el-breadcrumb separator-class="el-icon-arrow-right">
+  <el-breadcrumb-item>内容管理</el-breadcrumb-item>
+  <el-breadcrumb-item>内容分类管理</el-breadcrumb-item>
+  </el-breadcrumb>
+  <br />
+
   <div class="block">
     <p>内容分类管理</p>
     <el-tree
@@ -10,6 +17,7 @@
       :expand-on-click-node="false"
       :render-content="renderContent">
     </el-tree>
+
   </div>
 </div>
 
@@ -21,42 +29,7 @@
   export default {
     data() {
       const data = [{
-        id: 1,
-        label: '睿购商城',
-        children: [{
-          id: 4,
-          label: '首页',
-          children: [{
-            id: 9,
-            label: '大广告'
-          }, {
-            id: 10,
-            label: '中广告'
-          }, {
-            id: 11,
-            label: '小广告'
-          }]
-        }]
-      }, {
-        id: 2,
-        label: '列表页面',
-        children: [{
-          id: 5,
-          label: '二级 2-1'
-        }, {
-          id: 6,
-          label: '二级 2-2'
-        }]
-      }, {
-        id: 3,
-        label: '详细页面',
-        children: [{
-          id: 7,
-          label: '二级 3-1'
-        }, {
-          id: 8,
-          label: '二级 3-2'
-        }]
+       
       }];
       return {
         data: JSON.parse(JSON.stringify(data)),
@@ -91,6 +64,9 @@
             </span>
           </span>);
       }
+    },
+    created(){
+
     }
   };
 </script>
