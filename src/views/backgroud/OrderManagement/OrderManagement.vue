@@ -6,7 +6,46 @@
             <el-breadcrumb-item>订单列表</el-breadcrumb-item>
         </el-breadcrumb>
         <br />
-    <div class="headdiv">
+          <el-table
+      :data="tableData"
+      style="width: 100%">
+      <el-table-column
+        prop="date"
+        label="订单编号"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="订单金额"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="订单详情">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="联系人">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="电话">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="订单状态">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="修改状态">
+      </el-table-column>
+    </el-table>
+
+    <!-- <div class="headdiv">
             <input type="text" class="chaxun" value="订单号">
             <button class="chaxun">查询</button>
             <input type="button" class="shuaxin" value="刷新">
@@ -82,7 +121,7 @@
                 </tr>
             </table>
         </div>
-
+ -->
 
     </div>
 </template>

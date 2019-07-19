@@ -6,13 +6,48 @@
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="currentPage4"
-        :page-sizes="[100, 200, 300, 400]"
-        :page-size="100"
+        :page-sizes="[5, 10, 15, 20]"
+        :page-size="10"
         layout="total, sizes, prev, pager, next, jumper"
         :total="400">
         </el-pagination> 
     </div>
-    <div class="userb">
+    <el-table
+      :data="tableData"
+      tooltip-effect="dark"
+      style="width: 100%">
+      <el-table-column
+        prop="id"
+        label="账号"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="username"
+        label="用户名"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="password"
+        label="密码">
+      </el-table-column>
+       <el-table-column
+        prop="phone"
+        label="注册手机号">
+      </el-table-column>
+       <el-table-column
+        prop="email"
+        label="邮箱">
+      </el-table-column>
+       <el-table-column
+        prop="createdted"
+        label="创建日期">
+      </el-table-column>
+       <el-table-column
+        prop="updated"
+        label="更新日期">
+      </el-table-column>
+    </el-table>
+    <!-- <div class="userb">
         <table>
             <tr class="hang">
             <th class="id">账号</th>
@@ -51,83 +86,46 @@
                 <td class="updataTime">2019.07.15</td>
             </tr>
         </table>
-    </div> 
+    </div>  -->
 
 </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
+    data() {
+      return {
+        currentPage1: 5,
+        currentPage2: 5,
+        currentPage3: 5,
+        currentPage4: 4,
+        tableData:[]
+      };
+    },
     methods: {
       handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
       },
       handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
-      }
+      },
+      getuser(){
+          this.axios.get('/api/user/user',{params:{page:1,rows:10}}).then((response) => {
+            this.tableData=response.data.rows;
+        }).catch((error)=>{alert(error);
+    })
     },
-    data() {
-      return {
-        currentPage1: 5,
-        currentPage2: 5,
-        currentPage3: 5,
-        currentPage4: 4
-      };
-    } 
-    
+    },
+
+    mounted(){
+        this.getuser();
+    }  
 }
 </script>
 
-<style lang="scss" scoped>
-.headdiv{
-    width: 1150px;
-    height: 70px;
-    margin: 0 auto;
-    // background:#eee;
-}
-.messagediv{
-    width: 1150px;
-    // background: #eee;
-    margin: 0 auto;
-}
-table{
-    border-collapse:collapse;
-}
-table,tr,th ,td{
-    border: 1px solid black;
-}
-.id{
-    width: 150px;
-    text-align:center;
-}
-.name{
-    width: 100px;
-    text-align:center;
-}
-.password{
-    width: 200px;
-    text-align:center;
-}
-.phone{
-    width: 100px;
-    text-align:center;
-}
-.email{
-    width: 200px;
-    text-align:center;
-}
-.createTime{
-    width: 200px;
-    text-align:center;
-}
-.updataTime{
-    width: 150px;
-    text-align: center;
-}
-.tha{
-    width: 100px;
-    text-align: center;
-}
- 
-</style>
+ <style lang="scss" scoped>
+
+ </style>
 
