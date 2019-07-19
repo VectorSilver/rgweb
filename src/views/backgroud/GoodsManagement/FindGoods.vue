@@ -40,23 +40,22 @@
       :page-sizes="[10, 20, 30, 40]"
       :page-size="10"
       layout="total, sizes, prev, pager, next, jumper"
-      :total="this.total">
+      :total="total">
     </el-pagination>
 
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
   data() {
     return {
       GoodsList: [],//存放商品信息
       multipleSelection: [],
-        currentPage4: 1,
-        total:100,
-        row:10
+      currentPage4: 1,
+      total:100,
+      row:10
     };
   },
   methods: {
@@ -65,7 +64,6 @@ export default {
       .then((response) => {
         this.GoodsList = response.data.rows;
         this.total=response.data.total;
-
       }).catch((error) => {
         alert(error);
       })

@@ -91,7 +91,6 @@ export default {
           'Content-Type': 'multipart/form-data'
         }
       }
-
       this.axios.post(' ', {form:this.form}, config).then((response) => {
         alert('新增商品成功');
       }).catch((error) => {
