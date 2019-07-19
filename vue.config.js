@@ -12,6 +12,8 @@ module.exports = {
       //   }
       '/api':{
         target: 'http://10.25.193.148:9996', //源地址
+      '/api': { //奕桦
+        target: 'http://10.25.193.205:9999', //源地址
         changeOrigin: true, //允许跨域
         ws: true, //是否代理websockets
         pathRewrite: {

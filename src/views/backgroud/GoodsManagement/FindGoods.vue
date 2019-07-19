@@ -34,11 +34,13 @@
 
     <!-- 分页 -->
     <el-pagination
-      background
-      layout="prev, pager, next"
-      :total="100"
-      @current-change="handleCurrentChange()"
-    >
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="currentPage4"
+      :page-sizes="[10, 20, 30, 40]"
+      :page-size="10"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="this.total">
     </el-pagination>
 
   </div>
@@ -52,7 +54,9 @@ export default {
     return {
       GoodsList: [],//存放商品信息
       multipleSelection: [],
-      currentPage: 1
+        currentPage4: 1,
+        total:100,
+        row:10
     };
   },
   methods: {
@@ -60,22 +64,29 @@ export default {
       this.axios.get('/api/item/list', {params:{page:1, rows:10}})
       .then((response) => {
         this.GoodsList = response.data.rows;
+        this.total=response.data.total;
+
       }).catch((error) => {
         alert(error);
       })
     },
     handleCurrentChange(val) {
-      // alert('1111');
-      this.axios.get('/api/item/list', {params:{page:this.currentPage, rows:10}})
+      this.axios.get('/api/item/list', {params:{page:val, rows:this.row}})
       .then((response) => {
         this.GoodsList = response.data.rows;
       }).catch((error) => {
         alert(error);
       })
     },
-    // handleSizeChange(val) {
-    //   alert('2222');
-    // }
+    handleSizeChange(val){
+     this.row=val;
+      this.axios.get('/api/item/list', {params:{page:1, rows:val}})
+      .then((response) => {
+        this.GoodsList = response.data.rows;
+      }).catch((error) => {
+        alert(error);
+      })
+    }
   },
   mounted(){
     this.getGoodsList();
