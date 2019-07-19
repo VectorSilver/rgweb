@@ -27,7 +27,7 @@ export default {
         image:'',
         category_name:'',
         item_desc:'',
-        kw:'111',
+        kw:'',
         itemList:[]
       }
     },
