@@ -60,7 +60,6 @@
 
 <script>
 import wangEditor from './wangEditor'
-import axios from 'axios'
 
 export default {
   data() {
@@ -91,7 +90,7 @@ export default {
           'Content-Type': 'multipart/form-data'
         }
       }
-      this.axios.post(' ', {form:this.form}, config).then((response) => {
+      this.axios.post(' ', {form: this.form}, config).then((response) => {
         alert('新增商品成功');
       }).catch((error) => {
         alert(error);

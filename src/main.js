@@ -13,7 +13,7 @@ import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-
+//注册组件
 Vue.use(VueAxios,axios);
 Vue.use(ElementUI);
 
