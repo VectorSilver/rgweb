@@ -10,14 +10,22 @@ module.exports = {
       //   pathRewrite: {
       //     '^/api': ''
       //   }
-      '/api': { //奕桦
-        target: 'http://10.25.193.31:9999', //源地址
+      '/api':{
+        target: 'http://10.25.193.148:9996', //源地址
         changeOrigin: true, //允许跨域
         ws: true, //是否代理websockets
         pathRewrite: {
           '^/api': ''
         }
       },
+      // '/api': { //奕桦
+      //   target: 'http://10.25.193.31:9999', //源地址
+      //   changeOrigin: true, //允许跨域
+      //   ws: true, //是否代理websockets
+      //   pathRewrite: {
+      //     '^/api': ''
+      //   }
+      // },
       // '/api': { //商品描述-家琪
       //   target: 'http://10.25.193.118:9998', //源地址
       //   changeOrigin: true, //允许跨域
