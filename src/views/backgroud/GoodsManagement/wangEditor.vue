@@ -1,6 +1,6 @@
 <template>
     <div id="wangeditor">
-        <div ref="editorElem" style="text-align:left"></div>
+        <div ref="editorElem" style="text-align:left;"></div>
     </div>  
 </template>
 

@@ -37,7 +37,7 @@
         </el-upload>
       </el-form-item>
       <el-form-item label="商品描述" v-model="form.desc" prop="name">
-        <wangEditor :catchData="catchData"></wangEditor>
+        <wangEditor :catchData="catchData" style="z-index: 0"></wangEditor>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm(this.form)">提交</el-button>
@@ -46,8 +46,8 @@
     </el-form>
 
     <!-- Tree -->
-    <el-dialog title="选择类目" :visible.sync="dialogTreeVisible">
-      <el-tree :data="categoriesList" :props="defaultProps" show-checkbox></el-tree>
+    <el-dialog title="选择类目" :visible.sync="dialogTreeVisible" style="z-index: 99">
+      <el-tree :data="categoriesList" :props="defaultProps" show-checkbox style="z-index: 99"></el-tree>
 
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogTreeVisible = false">取 消</el-button>
@@ -92,14 +92,13 @@ export default {
         }
       }
 
-      this.axios.post('/manage/product/save.do', form, config).then((response) => {
+      this.axios.post(' ', {form:this.form}, config).then((response) => {
         alert('新增商品成功');
       }).catch((error) => {
         alert(error);
       })
     },
     resetForm(formName) { //重置表单
-      // alert('resetForm');
       this.$refs[formName].resetFields();
     },
     getCategories() { //获取商品类别

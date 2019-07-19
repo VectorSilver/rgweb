@@ -2,96 +2,87 @@
   <div>
 
     <my-header></my-header>
+    <my-searchBox></my-searchBox>
 
-    <!-- 响应式布局 -->
-    <!-- <el-row>
+    <el-page-header content="我的信息" id="PageHeader" title="首页" style="position:relative; top:80px; left:400px; "></el-page-header>
 
-      <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"><div class="grid-content"></div></el-col>
-      <el-col :xs="16" :sm="16" :md="16" :lg="16" :xl="16">
-          <div class="grid-content"> -->
-
-            <el-page-header content="我的信息" id="PageHeader" title="首页" style="position:absolute; left:20%; "></el-page-header>
-
-            <div id="left-box">
-              <ul>
-                <li>
-                  <router-link to="/myRG/myInfo">我的信息</router-link>
-                </li>
-                <li>
-                  <router-link to="">我的订单</router-link>
-                </li>
-                <li>
-                  <router-link to="/myRG/changePass">修改密码</router-link>
-                </li>
-              </ul>
-            </div>
-
-            <div id="right-box">
-              <transition mode="out-in">
-                <router-view></router-view>
-              </transition>
-            </div>
-            
-          <!-- </div> -->
-      <!-- </el-col>
-      <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4"><div class="grid-content"></div></el-col>
-    </el-row> -->
-
+    <div id="left-box">
+      <ul>
+        <li>
+          <router-link to="/myRG/myInfo">我的信息</router-link>
+        </li>
+        <li>
+          <router-link to>我的订单</router-link>
+        </li>
+        <li>
+          <router-link to="/myRG/changePass">修改密码</router-link>
+        </li>
+      </ul>
     </div>
+
+    <div id="right-box">
+      <transition mode="out-in">
+        <router-view></router-view>
+      </transition>
+    </div>
+
+  </div>
 </template>
 
 <script>
-  import Header from '../Header'
+import Header from '../Header'
+import SearchBox from '../SearchBox'
 
-  export default {
-    data() {
-      return {}
-    },
-    methods:{},
-    components:{
-      'my-header': Header
-    }
-  };
+export default {
+  data() {
+    return {};
+  },
+  methods: {},
+  components: {
+    'my-header': Header,
+    'my-searchBox': SearchBox
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  * {
-    list-style: none;
-    text-decoration: none;
-  }
+* {
+  list-style: none;
+  text-decoration: none;
+}
 
-  #left-box {
-    width: 200px;
-    position: absolute;
-    top: 100px;
-    left: 20%;
-  }
+#left-box {
+  width: 200px;
+  position: relative;
+  top: 100px;
+  left: 20%;
+}
 
-  #right-box {
-    width: 800px;
-    position: absolute;
-    top: 100px;
-    left: 25%;
-  }
+#right-box {
+  width: 800px;
+  position: relative;
+  // top: 100px;
+  left: 25%;
+}
 
-  .v-enter,
-  .v-leave-to {
-    opacity: 0;
-    transform: translateX(150px);
-  }
-  .v-enter-active,
-  .v-leave-active {
-    transition: all 0.2s ease;
-  }
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(150px);
+}
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.2s ease;
+}
 
-  #PageHeader {
-    position: absolute;
-    top: 50px;
-    left: 100px;
-  }
+#PageHeader {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
 
-  .grid-content {
-    min-height: 100px;
-    position: relative;
-  }
+.grid-content {
+  min-height: 100px;
+  position: relative;
+}
 </style>

@@ -14,6 +14,7 @@ import AddGoods from './views/backgroud/GoodsManagement/AddGoods'
 import FindGoods from './views/backgroud/GoodsManagement/FindGoods'
 import AddGoodsType from './views/backgroud/GoodsType/AddGoodsType'
 import FindGoodsType from './views/backgroud/GoodsType/FindGoodsType'
+import AddGoodsDesc from './views/backgroud/GoodsDesc/AddGoodsDesc'
 import FindGoodsDesc from './views/backgroud/GoodsDesc/FindGoodsDesc'
 import Cms from './views/backgroud/ContentManagement/CMS'
 import Categories from './views/backgroud/ContentManagement/Categories'
@@ -96,6 +97,11 @@ export default new Router({
           path: '/background/findGoodsType',
           name: 'findGoodsType',
           component: FindGoodsType
+        },
+        {
+          path: '/background/addGoodsDesc',
+          name: 'addGoodsDesc',
+          component: AddGoodsDesc
         },
         {
           path: '/background/findGoodsDesc',

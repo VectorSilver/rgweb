@@ -29,13 +29,15 @@ export default {
   list-style: none;
 }
 #div-big {
-  position: absolute;
+  position: relative;
+  width: 100%;
+  height: 100px;
 }
 #div-img {
   float: left;
   width: 70px;
   height: 70px;
-  position: relative;
+  position: absolute;
   top: 50px;
   left: 400px;
 }
@@ -46,7 +48,7 @@ export default {
   height: 40px;
   position: relative;
   top: 75px;
-  left: 600px;
+  left: 680px;
 }
 
 #div-button {
