@@ -5,10 +5,10 @@
         <img src="../assets/睿购商城logo.png" alt />
       </div>
       <div id="div-input">
-        <input type="text" placeholder="请输入商品名称" />
+        <input type="text" placeholder="请输入商品名称" v-model="this.age" />
       </div>
       <div id="div-button">
-        <button type="button">搜索</button>
+        <button @click="sousuo()">搜索</button>
       </div>
     </div>
   </div>
@@ -17,8 +17,27 @@
 
 <script>
 export default {
-  
-};
+    data() {
+      return {
+        id:'',
+        title:'',
+        sell_point:'',
+        price:'',
+        image:'',
+        category_name:'',
+        item_desc:'',
+      }
+    },
+    methods:{
+      sousuo(){
+        this.axios.get('http://10.25.193.148:9996/search/q',{params:{age:1}}).then((response) => {
+          alert(response);
+        }).catch((error) => {
+          alert(error);
+        })
+      }
+    }
+  }
 </script>
 
 
