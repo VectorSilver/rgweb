@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <div id="div-big">
       <div id="div-img">
         <img src="../assets/睿购商城logo.png" alt />
@@ -10,8 +11,8 @@
       <div id="div-button">
         <button @click="sousuo()">搜索</button>
       </div>
-      
     </div>
+    
   </div>
 </template>
 
@@ -56,6 +57,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100px;
+  top: 30px;
 }
 #div-img {
   float: left;

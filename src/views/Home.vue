@@ -1,7 +1,8 @@
 <template>
-  <div class="app-container">
+  <div>
 
     <my-header></my-header>
+    <my-searchBox></my-searchBox>
 
     <my-footer></my-footer>
 
@@ -9,9 +10,9 @@
 </template>
 
 <script>
-  //导入子组件
-  import Header from "../components/Header";
-  import Footer from "../components/Footer";
+  import Header from '../components/Header'
+  import Footer from '../components/Footer'
+  import SearchBox from '../components/SearchBox'
 
   export default {
   //   data() {
@@ -33,8 +34,9 @@
       // }
     // },
     components: {
-      "my-header": Header,
-      'my-footer': Footer
+      'my-header': Header,
+      'my-footer': Footer,
+      'my-searchBox': SearchBox
     }
   }
 </script>

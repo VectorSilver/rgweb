@@ -1,6 +1,9 @@
 <template>
   <div>
 
+    <el-page-header content="修改密码" id="PageHeader" title="首页"></el-page-header>
+    <br />
+
     <el-card>
       <div slot="header" class="clearfix">
         <span>修改密码</span>
@@ -35,18 +38,11 @@
         }
       }
     },
-    methods:{
-
-    }
+    methods:{}
   }
 </script>
 
 <style scoped lang="scss">
-  // *{
-  //   margin: 0px;
-  //   padding: 0px;
-  // }
-
   button {
     background-color: #409eff;
     border: 0px;

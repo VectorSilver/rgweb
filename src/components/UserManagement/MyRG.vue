@@ -4,8 +4,6 @@
     <my-header></my-header>
     <my-searchBox></my-searchBox>
 
-    <el-page-header content="我的信息" id="PageHeader" title="首页" style="position:relative; top:80px; left:400px; "></el-page-header>
-
     <div id="left-box">
       <ul>
         <li>
@@ -54,15 +52,15 @@ export default {
 #left-box {
   width: 200px;
   position: relative;
-  top: 100px;
-  left: 20%;
+  top: 130px;
+  left: 25%;
 }
 
 #right-box {
   width: 800px;
   position: relative;
-  // top: 100px;
-  left: 25%;
+  top: 20px;
+  left: 30%;
 }
 
 .v-enter,
