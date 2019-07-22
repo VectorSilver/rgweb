@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item>商品管理</el-breadcrumb-item>
       <el-breadcrumb-item>查询商品</el-breadcrumb-item>
@@ -55,7 +56,7 @@
       </span>
     </el-dialog>
 
-    <!-- 编辑商品弹窗 -->
+    <!-- 编辑商品对话框 -->
     <el-dialog title="编辑商品" :visible.sync="dialogFormVisible">
       <el-form :model="goodsIfo">
         <el-form-item label="商品id">
@@ -79,6 +80,7 @@
         <el-button type="primary" @click="dialogFormVisible = false; changeGoods()">确 定</el-button>
       </div>
     </el-dialog>
+
   </div>
 </template>
 
@@ -86,22 +88,20 @@
 export default {
   data() {
     return {
-      loading: false,
       goodsList: [], // 存放商品列表信息
       delVisible: false, // 删除提示弹框的状态
       goodsId: "", // 存放删除的数据id
       dialogFormVisible: false, // 编辑商品弹框的状态
-      total: 1,
-      rows: 10,
-      goodsIfo: 
-        {
-          id: "",
-          title: "",
-          sellPoint: "",
-          price: "",
-          num: ""
-        }
-      
+      total: 1, // 存放商品总数
+      rows: 10, // 存放每页显示条数
+      goodsIfo: {
+        id: "",
+        title: "",
+        sellPoint: "",
+        price: "",
+        num: ""
+      },
+      loading: true //开启页面加载效果
     };
   },
   methods: {
@@ -110,8 +110,9 @@ export default {
       this.axios
         .get("/1api/item/list", { params: { page: 1, rows: 10 } })
         .then(response => {
-          this.goodsList = response.data.rows;
-          this.total = response.data.total;
+          this.loading = false; //关闭页面加载效果
+          this.goodsList = response.data.rows; //获得所有商品列表数据
+          this.total = response.data.total; //获得商品总数
         })
         .catch(error => {
           console.log(error);
@@ -122,7 +123,7 @@ export default {
       this.axios
         .get("/1api/item/list", { params: { page: val, rows: this.rows } })
         .then(response => {
-          this.goodsList = response.data.rows;
+          this.goodsList = response.data.rows; //获得所有商品列表数据
         })
         .catch(error => {
           console.log(error);
@@ -239,6 +240,7 @@ export default {
         })
         .then(response => {
           this.$message({
+            //修改商品信息成功提示信息
             message: "商品信息修改成功！",
             type: "success",
             center: true
@@ -258,8 +260,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// body {
-//   margin: 0;
-// }
+  body {
+    margin: 0;
+  }
 </style>
 
