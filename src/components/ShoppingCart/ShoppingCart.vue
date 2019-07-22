@@ -55,9 +55,14 @@
               </td>
               <td class="cell-price">￥2799</td>
               <td class="cell-count">
-                <button class="jian" value="-">-</button>
+              <template>
+                <el-input-number class="jishu" size="small" v-model="num3" @change="handleChange" :min="1" :max="10"></el-input-number>
+              </template>
+
+
+                <!-- <button class="jian" value="-">-</button>
                 <input type="text" class="shanginput" data-max="kucun" value="1" />
-                <button class="jia" value="+">+</button>
+                <button class="jia" value="+">+</button> -->
                 <br />
                 <span class="kucun">（库存:）</span>
               </td>
@@ -86,7 +91,7 @@
         <div class="submit-con">
           <span class="submit-z">总价：</span>
           <span class="submit-total">￥2799</span>
-          <input class="jiesuan" type="button" value="去结算" />
+          <el-button type="success" class="jiesuan">结算</el-button>
         </div>
       </div>
     </div>
@@ -251,32 +256,34 @@ export default {
   border: 1px solid #e6e6e6;
 }
 
-.jian {
-  margin: 0%;
-  padding: 0px;
-  display: inline-block;
-  width: 18px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  font-size: 18px;
-  color: #999;
-  cursor: pointer;
-  border: 1px solid #b3a9a9;
-}
+// .jian {
+//   margin: 0%;
+//   padding: 0px;
+//   display: inline-block;
+//   width: 18px;
+//   height: 20px;
+//   line-height: 20px;
+//   text-align: center;
+//   font-size: 18px;
+//   color: #999;
+//   cursor: pointer;
+//   border: 1px solid #b3a9a9;
+// }
 
-.jia {
-  display: inline-block;
-  width: 18px;
-  height: 20px;
-  line-height: 20px;
+// .jia {
+//   display: inline-block;
+//   width: 18px;
+//   height: 20px;
+//   line-height: 20px;
+//   text-align: center;
+//   font-size: 18px;
+//   color: #999;
+//   cursor: pointer;
+//   border: 1px solid #b3a9a9;
+// }
+.jishu{
   text-align: center;
-  font-size: 18px;
-  color: #999;
-  cursor: pointer;
-  border: 1px solid #b3a9a9;
 }
-
 .kucun {
   size: 12px;
 }
@@ -284,7 +291,8 @@ export default {
 .danpindelete {
   /* padding-right: 20px; */
   width: 50px;
-  margin: 30%;
+  margin:  40%   30%;
+  text-align: center;
   background: #eee;
 }
 
@@ -337,8 +345,10 @@ export default {
 
 .jiesuan {
   height: 42px;
+  width: 60px;
   line-height: 42px;
   font-size: 25px;
+  margin-right: 20px;
   color: #eee;
   background: #ff8800;
 }

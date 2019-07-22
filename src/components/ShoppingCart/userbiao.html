@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户列表</title>
+    <!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+</head>
+<style>
+    .headdiv{
+    width: 950px;
+    height: 50px;
+    margin: 0 auto;
+    background:#eee;
+}
+.chaxun{
+    margin-top: 20px;
+    /* margin-left: 45px; */
+}
+  .userb{
+      width: 950px;
+      margin: 0 auto;
+      background:#eee;
+  } 
+  table{
+      border-collapse: collapse;
+  }
+  table,tr,th ,td{
+    border: 1px solid black;
+}
+.tho{
+    width: 150px;
+    text-align:center;
+}
+.tht{
+    width: 100px;
+    text-align:center;
+}
+.ths{
+    width: 150px;
+    text-align:center;
+}
+.thf{
+    width: 200px;
+    text-align:center;
+}
+.thy{
+    width: 200;
+    text-align:center;
+}
+.thfi{
+    width: 150px;
+    text-align:center;
+}
+.thsi{
+    width: 150px;
+    text-align:center;
+}
+</style>
+<body>
+    <div class="headdiv">
+        <input type="button" value="上一页" onclick="up()"/>
+        <input type="text" class="chaxun" value="1">
+        <input type="button" value="上一页" onclick="down()"/>
+        <button class="chaan">查询</button>
+    </div>
+    <div class="userb">
+        <table>
+            <tr class="hang">
+            <th class="tho">账号</th>
+            <th class="tht">用户名</th>
+            <th class="ths">密码</th>
+            <th class="thf">注册手机号</th>
+            <th class="thy">注册邮箱</th>
+            <th class="thfi">创建日期</th>
+            <th class="thsi">更新日期</th>
+            </tr>
+            <tr class="hang">
+                <td class="tho">123456</td>
+                <td class="tht">张三</td>
+                <td class="ths">12345678</td>
+                <td class="thf">13888888888</td>
+                <td class="thy">13888888888@163.com</td>
+                <td class="thfi">2019.07.15</td>
+                <td class="thsi">2019.07.15</td>
+            </tr>
+            <tr class="hang">
+                <td class="tho">123457</td>
+                <td class="tht">李四</td>
+                <td class="ths">12345678</td>
+                <td class="thf">13999999999</td>
+                <td class="thy">13999999999@163.com</td>
+                <td class="thfi">2019.07.15</td>
+                <td class="thsi">2019.07.15</td>
+            </tr>
+            <tr class="hang">
+                <td class="tho">123458</td>
+                <td class="tht">王五</td>
+                <td class="ths">12345678</td>
+                <td class="thf">13900000000</td>
+                <td class="thy">13900000000@163.com</td>
+                <td class="thfi">2019.07.15</td>
+                <td class="thsi">2019.07.15</td>
+            </tr>
+        </table>
+    </div> 
+      
+</body>
+</html>
