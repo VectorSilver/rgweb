@@ -112,7 +112,7 @@ export default {
         console.log(`当前页: ${val}`);
       },
       getuser(){
-          this.axios.get('/api/user/user',{params:{page:1,rows:10}}).then((response) => {
+          this.axios.get('/4api/user/user',{params:{page:1,rows:10}}).then((response) => {
             this.tableData=response.data.rows;
         }).catch((error)=>{alert(error);
     })

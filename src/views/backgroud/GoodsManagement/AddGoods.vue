@@ -29,7 +29,7 @@
       <el-form-item label="商品图片">
         <el-upload
           class="upload-demo"
-          action="https://manage/product/upload.do"
+          action=""
           multiple
           :limit="3"
         >
@@ -40,7 +40,7 @@
         <wangEditor :catchData="catchData" style="z-index: 0"></wangEditor>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm(this.form)">提交</el-button>
+        <el-button type="primary" @click="submitForm(form)">提交</el-button>
         <el-button @click="resetForm('form')">重置</el-button>
       </el-form-item>
     </el-form>
@@ -60,7 +60,6 @@
 
 <script>
 import wangEditor from './wangEditor'
-import axios from 'axios'
 
 export default {
   data() {
@@ -91,18 +90,17 @@ export default {
           'Content-Type': 'multipart/form-data'
         }
       }
-
-      this.axios.post(' ', {form:this.form}, config).then((response) => {
+      this.axios.post(' ', {form: this.form}, config).then((response) => {
         alert('新增商品成功');
       }).catch((error) => {
-        alert(error);
+        console.log(error);
       })
     },
     resetForm(formName) { //重置表单
       this.$refs[formName].resetFields();
     },
     getCategories() { //获取商品类别
-      this.axios.get('/api/item/cat/list').then((response) => {
+      this.axios.get('/2api/content/category/list').then((response) => {
         this.categoriesList = response.data;
       }).catch((error) => {
         console.log(error);

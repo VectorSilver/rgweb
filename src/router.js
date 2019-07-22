@@ -33,6 +33,14 @@ export default new Router({
       redirect: '/home' //路由重定向
     },
     {
+      path: '/background', 
+      redirect: '/background/addGoods' //路由重定向
+    },
+    {
+      path: '/myRG',
+      redirect: 'myRG/myInfo' //路由重定向
+    },
+    {
       path: '/home',
       name: 'home',
       component: Home
