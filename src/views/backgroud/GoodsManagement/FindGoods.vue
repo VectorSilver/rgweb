@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item>商品管理</el-breadcrumb-item>
       <el-breadcrumb-item>查询商品</el-breadcrumb-item>
@@ -8,7 +7,7 @@
     <br />
 
     <el-table
-      :data="GoodsList"
+      :data="goodsList"
       stripe
       max-height="700"
       tooltip-effect="dark"
@@ -58,29 +57,28 @@
 
     <!-- 编辑商品弹窗 -->
     <el-dialog title="编辑商品" :visible.sync="dialogFormVisible">
-      <el-form :model="GoodsList">
+      <el-form :model="goodsIfo">
         <el-form-item label="商品id">
-          <el-input></el-input>
+          <el-input v-model="goodsIfo.id"></el-input>
         </el-form-item>
         <el-form-item label="商品标题">
-          <el-input></el-input>
+          <el-input v-model="goodsIfo.title"></el-input>
         </el-form-item>
         <el-form-item label="商品卖点">
-          <el-input type="textarea"></el-input>
+          <el-input type="textarea" v-model="goodsIfo.sellPoint"></el-input>
         </el-form-item>
         <el-form-item label="商品价格">
-          <el-input></el-input>
+          <el-input v-model="goodsIfo.price"></el-input>
         </el-form-item>
         <el-form-item label="商品库存">
-          <el-input></el-input>
+          <el-input v-model="goodsIfo.num"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false; changeGoods()">确 定</el-button>
       </div>
     </el-dialog>
-
   </div>
 </template>
 
@@ -89,20 +87,30 @@ export default {
   data() {
     return {
       loading: false,
-      GoodsList: [], // 存放商品信息
+      goodsList: [], // 存放商品列表信息
       delVisible: false, // 删除提示弹框的状态
-      GoodsId: "", // 存放删除的数据id
+      goodsId: "", // 存放删除的数据id
       dialogFormVisible: false, // 编辑商品弹框的状态
       total: 1,
       rows: 10,
+      goodsIfo: 
+        {
+          id: "",
+          title: "",
+          sellPoint: "",
+          price: "",
+          num: ""
+        }
+      
     };
   },
   methods: {
     getGoodsList() {
       //获取商品列表,默认加载第一页，10条内容
-      this.axios.get("/1api/item/list", { params: { page: 1, rows: 10 } })
+      this.axios
+        .get("/1api/item/list", { params: { page: 1, rows: 10 } })
         .then(response => {
-          this.GoodsList = response.data.rows;
+          this.goodsList = response.data.rows;
           this.total = response.data.total;
         })
         .catch(error => {
@@ -111,9 +119,10 @@ export default {
     },
     currentChange(val) {
       //当前页码改变
-      this.axios.get("/1api/item/list", { params: { page: val, rows: this.rows } })
+      this.axios
+        .get("/1api/item/list", { params: { page: val, rows: this.rows } })
         .then(response => {
-          this.GoodsList = response.data.rows;
+          this.goodsList = response.data.rows;
         })
         .catch(error => {
           console.log(error);
@@ -122,9 +131,10 @@ export default {
     sizeChange(val) {
       //每页条数改变
       this.rows = val;
-      this.axios.get("/1api/item/list", { params: { page: 1, rows: val } })
+      this.axios
+        .get("/1api/item/list", { params: { page: 1, rows: val } })
         .then(response => {
-          this.GoodsList = response.data.rows;
+          this.goodsList = response.data.rows;
         })
         .catch(error => {
           console.log(error);
@@ -132,12 +142,13 @@ export default {
     },
     handleDelete(row) {
       //单行删除
-      this.GoodsId = row.id; //取出商品id,存到GoodsId中
+      this.goodsId = row.id; //取出商品id,存到GoodsId中
       this.delVisible = true; //弹出确认框
     },
     deleteRow() {
       //确定删除
-      this.axios.get("/1api/rest/item/delete", { params: { id: this.GoodsId } })
+      this.axios
+        .get("/1api/rest/item/delete", { params: { id: this.goodsId } })
         .then(response => {
           this.delVisible = false; //关闭确认框
           this.$message({
@@ -154,15 +165,25 @@ export default {
     },
     shangjia(row) {
       //商品上架
-      this.GoodsId = row.id; //取出商品id,存到GoodsId中
-      this.axios.get("/1api/rest/item/reshelf", { params: { id: this.GoodsId } })
+      this.goodsId = row.id; //取出商品id,存到GoodsId中
+      this.axios
+        .get("/1api/rest/item/reshelf", { params: { id: this.goodsId } })
         .then(response => {
-          this.$message({
+          if (row.status == 1) {
+            //判断商品是否已上架
+            this.$message({
+              message: "商品已上架！",
+              type: "error",
+              center: true
+            });
+          } else {
             //上架成功提示信息
-            message: "上架成功",
-            type: "success",
-            center: true
-          });
+            this.$message({
+              message: "上架成功！",
+              type: "success",
+              center: true
+            });
+          }
           this.getGoodsList(); //上架成功后重新获取数据
         })
         .catch(error => {
@@ -171,15 +192,25 @@ export default {
     },
     xiajia(row) {
       //商品下架
-      this.GoodsId = row.id; //取出商品id,存到GoodsId中
-      this.axios.get("/1api/rest/item/instock", { params: { id: this.GoodsId } })
+      this.goodsId = row.id; //取出商品id,存到GoodsId中
+      this.axios
+        .get("/1api/rest/item/instock", { params: { id: this.goodsId } })
         .then(response => {
-          this.$message({
+          if (row.status == 2) {
+            //判断商品是否已上架
+            this.$message({
+              message: "商品已下架！",
+              type: "error",
+              center: true
+            });
+          } else {
             //下架成功提示信息
-            message: "下架成功",
-            type: "success",
-            center: true
-          });
+            this.$message({
+              message: "下架成功！",
+              type: "success",
+              center: true
+            });
+          }
           this.getGoodsList(); //下架成功后重新获取数据
         })
         .catch(error => {
@@ -187,14 +218,36 @@ export default {
         });
     },
     handleEdit(row) {
-      //商品编辑
-      this.GoodsId = row.id; //取出商品id,存到GoodsId中
-      this.axios.get('/1api/rest/page/item', {params:{ id: this.GoodsId} })
-        .then((response) => {
-          console.log(this.GoodsId);
-        }).catch((error) => {
-          console.log(error)
+      //弹出商品编辑框，显示对应商品信息
+      this.goodsIfo.id = row.id;
+      this.goodsIfo.title = row.title;
+      this.goodsIfo.sellPoint = row.sellPoint;
+      this.goodsIfo.price = row.price;
+      this.goodsIfo.num = row.num;
+    },
+    changeGoods() {
+      //修改商品后提交
+      this.axios
+        .get("/1api/rest/page/item", {
+          params: {
+            id: this.goodsIfo.id,
+            title: this.goodsIfo.title,
+            sellPoint: this.goodsIfo.sellPoint,
+            price: this.goodsIfo.price,
+            num: this.goodsIfo.num
+          }
         })
+        .then(response => {
+          this.$message({
+            message: "商品信息修改成功！",
+            type: "success",
+            center: true
+          });
+          this.getGoodsList(); //修改完成后重新获取数据
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   },
   created() {
