@@ -10,39 +10,40 @@
       :data="tableData"
       style="width: 100%">
       <el-table-column
-        prop="date"
+        prop="orderId"
         label="订单编号"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="name"
+        prop="payment"
         label="订单金额"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="address"
+        prop="title"
         label="订单详情">
       </el-table-column>
       <el-table-column
-        prop="address"
+        prop="userId"
         label="联系人">
       </el-table-column>
       <el-table-column
-        prop="address"
+        prop="receiverAddress"
         label="地址">
       </el-table-column>
       <el-table-column
-        prop="address"
+        prop="receiverPhone"
         label="电话">
       </el-table-column>
       <el-table-column
-        prop="address"
+        prop="status"
         label="订单状态">
       </el-table-column>
       <el-table-column
         prop="address"
         label="修改状态">
       </el-table-column>
+      
     </el-table>
 
     <!-- <div class="headdiv">

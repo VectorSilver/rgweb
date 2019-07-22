@@ -102,9 +102,9 @@
               <i class="el-icon-folder"></i>
               <span slot="title">信息统计</span>
             </template>
-            <el-menu-item index="8-1">统计订单数量</el-menu-item>
-            <el-menu-item index="8-2">统计用户数量</el-menu-item>
-            <el-menu-item index="8-3">统计商品数量</el-menu-item>
+            <router-link to="/background/tongjiNumber">
+              <el-menu-item index="8-1">统计数量</el-menu-item>
+            </router-link>
           </el-submenu>
 
           <el-submenu index="9">
