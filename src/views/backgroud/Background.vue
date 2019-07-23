@@ -49,71 +49,51 @@
               <i class="el-icon-folder"></i>
               <span slot="title">商品描述管理</span>
             </template>
-            <router-link to="/background/addGoodsDesc">
-              <el-menu-item index="3-1">新增商品描述</el-menu-item>
-            </router-link>
             <router-link to="/background/findGoodsDesc">
-              <el-menu-item index="3-2">查询商品描述</el-menu-item>
+              <el-menu-item index="3-1">查询商品描述</el-menu-item>
             </router-link>
           </el-submenu>
 
           <el-submenu index="4">
             <template slot="title">
               <i class="el-icon-folder"></i>
-              <span slot="title">商品规格模板</span>
+              <span slot="title">内容管理</span>
             </template>
-            <el-menu-item index="4-1">新增商品规格模板</el-menu-item>
-            <el-menu-item index="4-2">查询商品规格模板</el-menu-item>
+            <router-link to="/background/categories">
+              <el-menu-item index="4-1">内容分类管理</el-menu-item>
+            </router-link>
+            <router-link to="/background/cms">
+              <el-menu-item index="4-2">内容管理</el-menu-item>
+            </router-link>
           </el-submenu>
 
           <el-submenu index="5">
             <template slot="title">
               <i class="el-icon-folder"></i>
-              <span slot="title">商品规格参数</span>
+              <span slot="title">订单管理</span>
             </template>
-            <el-menu-item index="5-1">查询商品规格参数</el-menu-item>
+            <router-link to="/background/orderManagement">
+              <el-menu-item index="5-1">订单列表</el-menu-item>
+            </router-link>
           </el-submenu>
 
           <el-submenu index="6">
             <template slot="title">
               <i class="el-icon-folder"></i>
-              <span slot="title">内容管理</span>
+              <span slot="title">信息统计</span>
             </template>
-            <router-link to="/background/categories">
-              <el-menu-item index="6-1">内容分类管理</el-menu-item>
-            </router-link>
-            <router-link to="/background/cms">
-              <el-menu-item index="6-2">内容管理</el-menu-item>
+            <router-link to="/background/tongjiNumber">
+              <el-menu-item index="6-1">统计数量</el-menu-item>
             </router-link>
           </el-submenu>
 
           <el-submenu index="7">
             <template slot="title">
               <i class="el-icon-folder"></i>
-              <span slot="title">订单管理</span>
-            </template>
-            <router-link to="/background/orderManagement">
-              <el-menu-item index="7-1">订单列表</el-menu-item>
-            </router-link>
-          </el-submenu>
-
-          <el-submenu index="8">
-            <template slot="title">
-              <i class="el-icon-folder"></i>
-              <span slot="title">信息统计</span>
-            </template>
-            <router-link to="/background/tongjiNumber">
-              <el-menu-item index="8-1">统计数量</el-menu-item>
-            </router-link>
-          </el-submenu>
-
-          <el-submenu index="9">
-            <template slot="title">
-              <i class="el-icon-folder"></i>
               <span slot="title">用户管理</span>
             </template>
             <router-link to="/background/userList">
-              <el-menu-item index="8-2">用户列表</el-menu-item>
+              <el-menu-item index="7-1">用户列表</el-menu-item>
             </router-link>
           </el-submenu>
         </el-menu>
