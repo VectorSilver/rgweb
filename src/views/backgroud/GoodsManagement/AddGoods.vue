@@ -108,7 +108,7 @@ export default {
     getCategories() {
       //获取商品类别
       this.axios
-        .get("/2api/content/category/list")
+        .get("/2api/item/cat/list")
         .then(response => {
           this.categoriesList = response.data; //获得所有商品类别数据
         })

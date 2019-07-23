@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item>商品管理</el-breadcrumb-item>
       <el-breadcrumb-item>查询商品</el-breadcrumb-item>
@@ -24,8 +23,8 @@
       <el-table-column prop="price" label="价格" width="80"></el-table-column>
       <el-table-column prop="num" label="库存数量" width="100"></el-table-column>
       <el-table-column prop="status" label="状态" width="50"></el-table-column>
-      <el-table-column prop="created" label="创建日期" width="100"></el-table-column>
-      <el-table-column prop="updated" label="更新日期" width="100"></el-table-column>
+      <el-table-column prop="created" :formatter="dateFormat" label="创建日期" width="100"></el-table-column>
+      <el-table-column prop="updated" :formatter="dateFormat" label="更新日期" width="100"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button size="mini" @click="dialogFormVisible = true; handleEdit(scope.row)">编辑</el-button>
@@ -74,34 +73,44 @@
         <el-form-item label="商品库存">
           <el-input v-model="goodsIfo.num"></el-input>
         </el-form-item>
+        <el-form-item label="父类目id">
+          <el-input v-model="goodsIfo.cid"></el-input>
+        </el-form-item>
+        <el-form-item label="状态">
+          <el-input v-model="goodsIfo.status"></el-input>
+        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
         <el-button type="primary" @click="dialogFormVisible = false; changeGoods()">确 定</el-button>
       </div>
     </el-dialog>
-
   </div>
 </template>
 
 <script>
+import Qs from "qs";
+
 export default {
   data() {
     return {
-      goodsList: [], // 存放商品列表信息
-      delVisible: false, // 删除提示弹框的状态
-      goodsId: "", // 存放删除的数据id
-      dialogFormVisible: false, // 编辑商品弹框的状态
-      total: 1, // 存放商品总数
-      rows: 10, // 存放每页显示条数
+      loading: true, //开启页面加载效果
+      goodsList: [], //存放商品列表信息
+      delVisible: false, //删除提示弹框的状态
+      goodsId: "", //存放删除的数据id
+      dialogFormVisible: false, //编辑商品弹框的状态
+      total: 1, //存放商品总数
+      rows: 10, //存放每页显示条数
       goodsIfo: {
+        //存放点击的商品对象
         id: "",
         title: "",
         sellPoint: "",
         price: "",
-        num: ""
-      },
-      loading: true //开启页面加载效果
+        num: "",
+        cid: "",
+        status: 1
+      }
     };
   },
   methods: {
@@ -135,7 +144,7 @@ export default {
       this.axios
         .get("/1api/item/list", { params: { page: 1, rows: val } })
         .then(response => {
-          this.goodsList = response.data.rows;
+          this.goodsList = response.data.rows; //获得所有商品列表数据
         })
         .catch(error => {
           console.log(error);
@@ -225,17 +234,27 @@ export default {
       this.goodsIfo.sellPoint = row.sellPoint;
       this.goodsIfo.price = row.price;
       this.goodsIfo.num = row.num;
+      this.goodsIfo.cid = row.cid;
+      this.goodsIfo.status = row.status;
+      this.goodsIfo.created = row.created;
     },
     changeGoods() {
       //修改商品后提交
+      var item = {
+        id: this.goodsIfo.id,
+        title: this.goodsIfo.title,
+        sellPoint: this.goodsIfo.sellPoint,
+        price: this.goodsIfo.price,
+        num: this.goodsIfo.num,
+        cid: this.goodsIfo.cid,
+        status: this.goodsIfo.status,
+        created: this.dataFormtX(this.goodsIfo.created), //日期格式化
+        image: this.goodsIfo.image
+      };
       this.axios
-        .get("/1api/rest/page/item", {
-          params: {
-            id: this.goodsIfo.id,
-            title: this.goodsIfo.title,
-            sellPoint: this.goodsIfo.sellPoint,
-            price: this.goodsIfo.price,
-            num: this.goodsIfo.num
+        .post("/1api/item/update", Qs.stringify(item), {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
           }
         })
         .then(response => {
@@ -250,6 +269,35 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    dateFormat(row, column, cellValue, index) {
+      //日期格式化
+      const daterc = row[column.property];
+      if (daterc != null) {
+        const dateMat = new Date(daterc);
+        const year = dateMat.getFullYear();
+        const month = dateMat.getMonth() + 1;
+        const day = dateMat.getDate();
+        const hh = dateMat.getHours();
+        const mm = dateMat.getMinutes();
+        const ss = dateMat.getSeconds();
+        const timeFormat =
+          year + "/" + month + "/" + day + " " + hh + ":" + mm + ":" + ss;
+        return timeFormat;
+      }
+    },
+    dataFormtX(time) {
+      //自己写的日期格式化
+      const dateMat = new Date(time);
+      const year = dateMat.getFullYear();
+      const month = dateMat.getMonth() + 1;
+      const day = dateMat.getDate();
+      const hh = dateMat.getHours();
+      const mm = dateMat.getMinutes();
+      const ss = dateMat.getSeconds();
+      const timeFormat =
+        year + "/" + month + "/" + day + " " + hh + ":" + mm + ":" + ss;
+      return timeFormat;
     }
   },
   created() {
@@ -260,8 +308,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  body {
-    margin: 0;
-  }
+// body {
+//   margin: 0;
+// }
 </style>
 
