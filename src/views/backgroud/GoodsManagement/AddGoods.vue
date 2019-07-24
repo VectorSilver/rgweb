@@ -12,17 +12,17 @@
         <span>{{ ' 您选择的类目id为：' + form.cid}}</span>
       </el-form-item>
       <el-form-item label="商品标题" prop="title">
-        <el-input v-model="form.title"></el-input>
+        <el-input v-model="form.title" placeholder="请输入商品标题"></el-input>
       </el-form-item>
       <el-form-item label="商品卖点" prop="sellPoint">
-        <el-input type="textarea" v-model="form.sellPoint"></el-input>
+        <el-input type="textarea" autosize v-model="form.sellPoint" placeholder="请输入商品卖点"></el-input>
       </el-form-item>
       <el-form-item label="商品价格" prop="price">
-        <el-input v-model="form.price"></el-input>
+        <el-input v-model="form.price" placeholder="请输入商品价格"></el-input>
       </el-form-item>
-      <el-form-item label="库存" prop="number">
-        <el-input v-model="form.number"></el-input>
-      </el-form-item>
+      <el-form-item-number label="商品库存" :min="1" controls-position="right" prop="number">
+        <el-input v-model="form.number" placeholder="请输入商品库存"></el-input>
+      </el-form-item-number>
       <el-form-item label="条形码" prop="barCode">
         <el-input v-model="form.barCode"></el-input>
       </el-form-item>
@@ -31,7 +31,7 @@
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
       </el-form-item>
-      <el-form-item label="商品描述" v-model="form.desc" prop="name">
+      <el-form-item label="商品描述" v-model="form.desc" autosize prop="name" placeholder="请输入商品描述">
         <wangEditor :catchData="catchData"></wangEditor>
       </el-form-item>
       <el-form-item>
